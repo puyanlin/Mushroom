@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="KGk-i7-Jjw" customClass="SalesCell" customModule="mushroom" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNG-mD-QpW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="消費滿1000元即贈內搭衣一件，限時優惠中！" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ay-Q5-toH">
+                        <rect key="frame" x="8" y="8" width="304" height="93"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <color key="backgroundColor" red="0.87843137250000003" green="0.20000000000000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="1ay-Q5-toH" secondAttribute="centerX" id="CSY-Sa-XSr"/>
+                    <constraint firstAttribute="centerY" secondItem="1ay-Q5-toH" secondAttribute="centerY" id="G8f-3W-U7f"/>
+                    <constraint firstItem="1ay-Q5-toH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="OYZ-FU-7Wa"/>
+                    <constraint firstAttribute="trailing" secondItem="bNG-mD-QpW" secondAttribute="trailing" id="P3Z-hO-uix"/>
+                    <constraint firstAttribute="centerX" secondItem="bNG-mD-QpW" secondAttribute="centerX" id="ZwG-fk-VKK"/>
+                    <constraint firstAttribute="bottom" secondItem="bNG-mD-QpW" secondAttribute="bottom" id="bX1-MJ-bjE"/>
+                    <constraint firstItem="1ay-Q5-toH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="e2O-8l-ZbP"/>
+                    <constraint firstItem="bNG-mD-QpW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iXf-WT-Yku"/>
+                    <constraint firstAttribute="centerY" secondItem="bNG-mD-QpW" secondAttribute="centerY" id="j4R-lV-rpa"/>
+                    <constraint firstItem="1ay-Q5-toH" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="s2m-4X-QBI"/>
+                    <constraint firstItem="1ay-Q5-toH" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="yNr-qU-bXX"/>
+                    <constraint firstItem="bNG-mD-QpW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ypn-9d-VfC"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+</document>

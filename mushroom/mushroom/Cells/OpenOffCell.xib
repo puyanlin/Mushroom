@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E33b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="OpenOffCell" customModule="mushroom" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天有開" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ani-hA-PXO">
+                        <rect key="frame" x="82" y="8" width="156" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="LQX-IK-7Hh"/>
+                            <constraint firstAttribute="width" constant="156" id="vbI-tT-ADs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="營業時間 8:00 ~ 17:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-yA-0ZU">
+                        <rect key="frame" x="58" y="36" width="205" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="EF2-r4-OVd"/>
+                            <constraint firstAttribute="width" constant="205" id="wdp-hn-B6y"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.19215686269999999" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="ani-hA-PXO" secondAttribute="centerX" id="TOX-ug-mtq"/>
+                    <constraint firstAttribute="bottom" secondItem="aoh-yA-0ZU" secondAttribute="bottom" constant="8" id="XST-KD-aSl"/>
+                    <constraint firstAttribute="centerX" secondItem="aoh-yA-0ZU" secondAttribute="centerX" id="Zug-Dg-o1H"/>
+                    <constraint firstItem="ani-hA-PXO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gL2-kt-uxn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblOpenOff" destination="ani-hA-PXO" id="TS8-bA-fGY"/>
+                <outlet property="lblOpeningTime" destination="aoh-yA-0ZU" id="3eH-rB-K81"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

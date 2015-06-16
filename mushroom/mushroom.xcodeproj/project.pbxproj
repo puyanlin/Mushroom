@@ -32,6 +32,10 @@
 		CD2497DF1B2FF46900AE688F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497DE1B2FF46900AE688F /* libsqlite3.dylib */; };
 		CD2497E11B2FF47300AE688F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497E01B2FF47300AE688F /* Accounts.framework */; };
 		CD2497E31B2FF47B00AE688F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497E21B2FF47B00AE688F /* Social.framework */; };
+		CD2497E71B3008FA00AE688F /* OpenOffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2497E51B3008FA00AE688F /* OpenOffCell.swift */; };
+		CD2497E81B3008FA00AE688F /* OpenOffCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2497E61B3008FA00AE688F /* OpenOffCell.xib */; };
+		CD2497EF1B30199F00AE688F /* SalesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2497ED1B30199F00AE688F /* SalesCell.swift */; };
+		CD2497F01B30199F00AE688F /* SalesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2497EE1B30199F00AE688F /* SalesCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		CD2497DE1B2FF46900AE688F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CD2497E01B2FF47300AE688F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CD2497E21B2FF47B00AE688F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CD2497E51B3008FA00AE688F /* OpenOffCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenOffCell.swift; path = Cells/OpenOffCell.swift; sourceTree = "<group>"; };
+		CD2497E61B3008FA00AE688F /* OpenOffCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OpenOffCell.xib; path = Cells/OpenOffCell.xib; sourceTree = "<group>"; };
+		CD2497ED1B30199F00AE688F /* SalesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalesCell.swift; sourceTree = "<group>"; };
+		CD2497EE1B30199F00AE688F /* SalesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +143,7 @@
 		CD2497991B2FC8DA00AE688F /* mushroom */ = {
 			isa = PBXGroup;
 			children = (
+				CD2497E41B30089200AE688F /* Cells */,
 				CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */,
 				CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */,
 				CD2497A01B2FC8DA00AE688F /* Main.storyboard */,
@@ -202,6 +211,17 @@
 				CD2497C31B2FF3B000AE688F /* ParseUI.framework */,
 			);
 			path = "parse-library";
+			sourceTree = "<group>";
+		};
+		CD2497E41B30089200AE688F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CD2497E51B3008FA00AE688F /* OpenOffCell.swift */,
+				CD2497E61B3008FA00AE688F /* OpenOffCell.xib */,
+				CD2497ED1B30199F00AE688F /* SalesCell.swift */,
+				CD2497EE1B30199F00AE688F /* SalesCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +306,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */,
+				CD2497E81B3008FA00AE688F /* OpenOffCell.xib in Resources */,
 				CD2497A71B2FC8DA00AE688F /* LaunchScreen.xib in Resources */,
+				CD2497F01B30199F00AE688F /* SalesCell.xib in Resources */,
 				CD2497A41B2FC8DA00AE688F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +329,8 @@
 			files = (
 				CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */,
 				CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */,
+				CD2497EF1B30199F00AE688F /* SalesCell.swift in Sources */,
+				CD2497E71B3008FA00AE688F /* OpenOffCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
