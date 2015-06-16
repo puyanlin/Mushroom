@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */; };
-		CD24979F1B2FC8DA00AE688F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979E1B2FC8DA00AE688F /* ViewController.swift */; };
+		CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */; };
 		CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2497A01B2FC8DA00AE688F /* Main.storyboard */; };
 		CD2497A41B2FC8DA00AE688F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD2497A31B2FC8DA00AE688F /* Images.xcassets */; };
 		CD2497A71B2FC8DA00AE688F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2497A51B2FC8DA00AE688F /* LaunchScreen.xib */; };
@@ -29,7 +29,7 @@
 		CD2497971B2FC8DA00AE688F /* mushroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mushroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD24979B1B2FC8DA00AE688F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD24979E1B2FC8DA00AE688F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		CD2497A11B2FC8DA00AE688F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD2497A31B2FC8DA00AE688F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD2497A61B2FC8DA00AE688F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */,
-				CD24979E1B2FC8DA00AE688F /* ViewController.swift */,
+				CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */,
 				CD2497A01B2FC8DA00AE688F /* Main.storyboard */,
 				CD2497A31B2FC8DA00AE688F /* Images.xcassets */,
 				CD2497A51B2FC8DA00AE688F /* LaunchScreen.xib */,
@@ -213,7 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD24979F1B2FC8DA00AE688F /* ViewController.swift in Sources */,
+				CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */,
 				CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +416,7 @@
 				CD2497B81B2FC8DA00AE688F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD2497B91B2FC8DA00AE688F /* Build configuration list for PBXNativeTarget "mushroomTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +425,7 @@
 				CD2497BB1B2FC8DA00AE688F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
