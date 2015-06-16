@@ -14,6 +14,7 @@ class MasterViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title="香菇日韓服飾"
+        
     }
 
     override func didReceiveMemoryWarning() {
