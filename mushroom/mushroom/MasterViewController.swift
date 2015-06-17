@@ -22,7 +22,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.title="香菇日韓服飾"
+        
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier:"Cell")
         self.tableView.registerNib(UINib(nibName: "OpenOffCell", bundle: nil), forCellReuseIdentifier:"OpenOffCell")
         self.tableView.registerNib(UINib(nibName: "SalesCell", bundle: nil), forCellReuseIdentifier:"SalesCell")
@@ -33,6 +33,11 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title="香菇日韓服飾"
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -76,7 +81,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    //MARK: UITableViewDataSource
+    //MARK: UITableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.appConfig==nil ? 0 : 3
         
@@ -112,7 +117,8 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 var cell=tableView.dequeueReusableCellWithIdentifier("SalesCell") as! SalesCell
                 let salesInfo=self.appConfig["saleContent"] as! String
                 cell.tvSales.text=salesInfo.stringByReplacingOccurrencesOfString("\\n", withString: "\n", options: nil , range: nil)
-                cell.tvSales.font = UIFont.systemFontOfSize(24)
+                let size=self.appConfig["saleTextSize"] as! CGFloat
+                cell.tvSales.font = UIFont.systemFontOfSize(size)
                 cell.tvSales.textColor=UIColor.whiteColor()
                 cell.imgUrl=self.appConfig["saleImage"] as! String
                 return cell
@@ -175,6 +181,19 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             cell.layoutMargins=UIEdgeInsetsZero
         }
     
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section==2 {
+            switch(indexPath.row){
+            case 2:
+                self.title="返回"
+                var contactViewController:ContactTableViewController=ContactTableViewController(style:UITableViewStyle.Grouped)
+                self.navigationController?.pushViewController(contactViewController, animated: true)
+            default:
+                break
+            }
+        }
     }
 
 

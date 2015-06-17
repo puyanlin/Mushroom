@@ -25,6 +25,7 @@
 		3D0D88F71B31293000978C3A /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E51B31293000978C3A /* UIImageView+HighlightedWebCache.m */; };
 		3D0D88F81B31293000978C3A /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E71B31293000978C3A /* UIImageView+WebCache.m */; };
 		3D0D88F91B31293000978C3A /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E91B31293000978C3A /* UIView+WebCacheOperation.m */; };
+		3DAFF9C31B316834002F2EBD /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */; };
 		CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */; };
 		CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */; };
 		CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2497A01B2FC8DA00AE688F /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		3D0D88E81B31293000978C3A /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		3D0D88E91B31293000978C3A /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		3D0D88FA1B31424500978C3A /* mushroom-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mushroom-Bridging-Header.h"; sourceTree = "<group>"; };
+		3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		CD2497971B2FC8DA00AE688F /* mushroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mushroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD24979B1B2FC8DA00AE688F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				CD2497E41B30089200AE688F /* Cells */,
 				CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */,
 				CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */,
+				3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */,
 				CD2497A01B2FC8DA00AE688F /* Main.storyboard */,
 				CD2497A51B2FC8DA00AE688F /* LaunchScreen.xib */,
 				CD2497A31B2FC8DA00AE688F /* Images.xcassets */,
@@ -431,6 +434,7 @@
 				CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */,
 				3D0D88F61B31293000978C3A /* UIImage+WebP.m in Sources */,
 				3D0D88F81B31293000978C3A /* UIImageView+WebCache.m in Sources */,
+				3DAFF9C31B316834002F2EBD /* ContactTableViewController.swift in Sources */,
 				3D0D88EF1B31293000978C3A /* SDWebImageDownloader.m in Sources */,
 				3D0D88F91B31293000978C3A /* UIView+WebCacheOperation.m in Sources */,
 				3D0D88F31B31293000978C3A /* UIButton+WebCache.m in Sources */,
