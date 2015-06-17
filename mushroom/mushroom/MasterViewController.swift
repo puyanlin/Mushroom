@@ -83,6 +83,9 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section){
+        case 1:
+            let onSale=self.appConfig["onSale"] as! Bool
+            return onSale ? 1:0
         case 2:     return 3
         default:    return 1
         }
@@ -107,6 +110,11 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 return cell
             case 1:
                 var cell=tableView.dequeueReusableCellWithIdentifier("SalesCell") as! SalesCell
+                let salesInfo=self.appConfig["saleContent"] as! String
+                cell.tvSales.text=salesInfo.stringByReplacingOccurrencesOfString("\\n", withString: "\n", options: nil , range: nil)
+                cell.tvSales.font = UIFont.systemFontOfSize(24)
+                cell.tvSales.textColor=UIColor.whiteColor()
+                cell.imgUrl=self.appConfig["saleImage"] as! String
                 return cell
             default:
                 var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
@@ -132,7 +140,9 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch(section){
-        case 1:     return "特別促銷"
+        case 1:
+            let onSale = self.appConfig["onSale"] as! Bool
+            return onSale ? "特別促銷":""
         default:    return ""
         }
     }

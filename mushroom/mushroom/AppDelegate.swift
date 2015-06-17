@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import Bolts
 
+//FIXME: fill the id & key to using parse
 let PARSE_APPLICATION_ID:String=""
 let PARSE_CLIENT_KEY:String=""
 
