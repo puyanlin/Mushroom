@@ -237,8 +237,8 @@
 				CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */,
 				CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */,
 				CD2497A01B2FC8DA00AE688F /* Main.storyboard */,
-				CD2497A31B2FC8DA00AE688F /* Images.xcassets */,
 				CD2497A51B2FC8DA00AE688F /* LaunchScreen.xib */,
+				CD2497A31B2FC8DA00AE688F /* Images.xcassets */,
 				CD24979A1B2FC8DA00AE688F /* Supporting Files */,
 			);
 			path = mushroom;

@@ -120,6 +120,22 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
                 
                 cell.textLabel?.text = arrayTitle[indexPath.row]
+                switch(indexPath.row){
+                case 0:
+                    cell.backgroundColor=UIColor(patternImage: UIImage(named: "cute")!)
+                case 1:
+                    cell.backgroundColor=UIColor(patternImage: UIImage(named: "pretty")!)
+                default:
+                    cell.backgroundColor=UIColor(patternImage: UIImage(named: "jeans")!)
+                }
+                cell.contentView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+                
+                var selectedView:UIView = UIView()
+                selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3);
+                cell.selectedBackgroundView =  selectedView;
+                
+                cell.textLabel?.font=UIFont(name: "Arial-BoldMT", size: 30)
+                cell.textLabel?.textColor=UIColor.darkGrayColor()
                 
                 return cell
         }
@@ -135,7 +151,8 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 25;
+        if section==2 { return 0 }
+        return 25
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
