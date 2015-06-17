@@ -15,7 +15,15 @@ class OpenOffCell: UITableViewCell {
     
     var isOpen:Bool=false{
         didSet{
-            lblOpeningTime.hidden = !isOpen
+            //lblOpeningTime.hidden = !isOpen
+            self.contentView.backgroundColor = isOpen ? UIColor(red: 49.0/255, green: 199.0/255, blue: 190.0/255, alpha: 1): UIColor(red: 241.0/255, green: 40.0/255, blue: 48.0/255, alpha: 1)
+            self.lblOpenOff.text = isOpen ? "今天有開":"今天沒開"
+        }
+    }
+    
+    var closeReason:String=""{
+        didSet{
+            self.lblOpeningTime.text=closeReason
         }
     }
     

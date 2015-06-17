@@ -10,9 +10,11 @@ import UIKit
 import Parse
 import Bolts
 
-class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate{
 
     @IBOutlet var tableView: UITableView!
+    
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     var appConfig:PFConfig!
     
     let arrayTitle=["最新消息","香菇衣櫃","找香菇"]
@@ -26,14 +28,32 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.tableView.registerNib(UINib(nibName: "SalesCell", bundle: nil), forCellReuseIdentifier:"SalesCell")
         self.tableView.tableFooterView=UIView()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.loadingIndicator.hidden=false
+        self.tableView.hidden=true
         
         PFConfig.getConfigInBackgroundWithBlock { (var cfg:PFConfig?, var error:NSError?) -> Void in
             self.appConfig = cfg as PFConfig!
-            let t=self.appConfig["closeTime"] as! String
             
-            println("close time \(t)")
+            self.loadingIndicator.hidden=true
+            self.tableView.hidden=false
             
+            let transition = CATransition()
+            transition.type = kCATransitionPush
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition.fillMode = kCAFillModeForwards
+            transition.duration = 0.5
+            transition.subtype = kCATransitionFromBottom
+            self.tableView.layer.addAnimation(transition, forKey: "UITableViewReloadDataAnimationKey")
             self.tableView.reloadData()
+            
         }
         
     }
@@ -41,6 +61,19 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func applicationWillEnterForeground(notification: NSNotification) {
+        //println("did enter foreground")
+        self.viewDidAppear(false)
+    }
+    
+    func applicationWillEnterBackground(notification: NSNotification) {
+        //println("did enter background")
+    }
+    
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     //MARK: UITableViewDataSource
@@ -59,6 +92,18 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         switch(indexPath.section){
             case 0:
                 var cell=tableView.dequeueReusableCellWithIdentifier("OpenOffCell") as! OpenOffCell
+                
+                let open=self.appConfig["open"] as! Bool
+                cell.isOpen=open
+                
+                if open {
+                    let opentime=self.appConfig["openTime"] as! String
+                    let close=self.appConfig["closeTime"] as! String
+                    cell.setOpeningTimeAndOffTime(opentime, off: close)
+                }else{
+                    cell.closeReason=self.appConfig["closeReason"] as! String
+                }
+                
                 return cell
             case 1:
                 var cell=tableView.dequeueReusableCellWithIdentifier("SalesCell") as! SalesCell
@@ -104,6 +149,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         }
     
     }
+
 
 }
 
