@@ -191,6 +191,9 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             case 0:
                 var newsTableViewController:NewsTableViewController=NewsTableViewController()
                 self.navigationController?.pushViewController(newsTableViewController, animated: true)
+            case 1:
+                var closetTableViewController:ClosetTableViewController=ClosetTableViewController()
+                self.navigationController?.pushViewController(closetTableViewController, animated: true)
             case 2:
                 var contactViewController:ContactTableViewController=ContactTableViewController(style:UITableViewStyle.Grouped)
                 self.navigationController?.pushViewController(contactViewController, animated: true)

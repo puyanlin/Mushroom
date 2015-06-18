@@ -56,6 +56,9 @@
 		CD97345B1B3261740087D7E6 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */; };
 		CD97345E1B3267680087D7E6 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97345C1B3267680087D7E6 /* NewsCell.swift */; };
 		CD97345F1B3267680087D7E6 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD97345D1B3267680087D7E6 /* NewsCell.xib */; };
+		CD9734621B32B88F0087D7E6 /* ClosetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */; };
+		CD9734651B32C5E40087D7E6 /* ClosetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9734631B32C5E40087D7E6 /* ClosetViewCell.swift */; };
+		CD9734661B32C5E40087D7E6 /* ClosetViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9734641B32C5E40087D7E6 /* ClosetViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +143,9 @@
 		CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		CD97345C1B3267680087D7E6 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = Cells/NewsCell.swift; sourceTree = "<group>"; };
 		CD97345D1B3267680087D7E6 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsCell.xib; path = Cells/NewsCell.xib; sourceTree = "<group>"; };
+		CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetTableViewController.swift; sourceTree = "<group>"; };
+		CD9734631B32C5E40087D7E6 /* ClosetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosetViewCell.swift; path = Cells/ClosetViewCell.swift; sourceTree = "<group>"; };
+		CD9734641B32C5E40087D7E6 /* ClosetViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClosetViewCell.xib; path = Cells/ClosetViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,8 +251,9 @@
 				CD2497E41B30089200AE688F /* Cells */,
 				CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */,
 				CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */,
-				3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */,
 				CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */,
+				CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */,
+				3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */,
 				CD2497A01B2FC8DA00AE688F /* Main.storyboard */,
 				CD2497A51B2FC8DA00AE688F /* LaunchScreen.xib */,
 				CD2497A31B2FC8DA00AE688F /* Images.xcassets */,
@@ -325,6 +332,8 @@
 				3D0D88C31B31289600978C3A /* SalesCell.xib */,
 				CD97345C1B3267680087D7E6 /* NewsCell.swift */,
 				CD97345D1B3267680087D7E6 /* NewsCell.xib */,
+				CD9734631B32C5E40087D7E6 /* ClosetViewCell.swift */,
+				CD9734641B32C5E40087D7E6 /* ClosetViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 			files = (
 				CD97345F1B3267680087D7E6 /* NewsCell.xib in Resources */,
 				CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */,
+				CD9734661B32C5E40087D7E6 /* ClosetViewCell.xib in Resources */,
 				CD2497E81B3008FA00AE688F /* OpenOffCell.xib in Resources */,
 				CD2497A71B2FC8DA00AE688F /* LaunchScreen.xib in Resources */,
 				3D0D88C51B31289600978C3A /* SalesCell.xib in Resources */,
@@ -452,6 +462,7 @@
 				3D0D88F21B31293000978C3A /* SDWebImagePrefetcher.m in Sources */,
 				3D0D88C41B31289600978C3A /* SalesCell.swift in Sources */,
 				CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */,
+				CD9734621B32B88F0087D7E6 /* ClosetTableViewController.swift in Sources */,
 				3D0D88F61B31293000978C3A /* UIImage+WebP.m in Sources */,
 				3D0D88F81B31293000978C3A /* UIImageView+WebCache.m in Sources */,
 				3DAFF9C31B316834002F2EBD /* ContactTableViewController.swift in Sources */,
@@ -459,6 +470,7 @@
 				3D0D88F91B31293000978C3A /* UIView+WebCacheOperation.m in Sources */,
 				3D0D88F31B31293000978C3A /* UIButton+WebCache.m in Sources */,
 				3D0D88EA1B31293000978C3A /* MKAnnotationView+WebCache.m in Sources */,
+				CD9734651B32C5E40087D7E6 /* ClosetViewCell.swift in Sources */,
 				3D0D88EB1B31293000978C3A /* NSData+ImageContentType.m in Sources */,
 				CD2497E71B3008FA00AE688F /* OpenOffCell.swift in Sources */,
 				3D0D88F11B31293000978C3A /* SDWebImageManager.m in Sources */,

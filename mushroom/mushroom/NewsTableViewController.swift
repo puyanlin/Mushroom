@@ -59,7 +59,6 @@ class NewsTableViewController: UITableViewController {
         loadingIndicator.startAnimating()
         loadingIndicator.activityIndicatorViewStyle=UIActivityIndicatorViewStyle.WhiteLarge
         loadingIndicator.color=UIColor.yellowColor()
-        
         self.tableView.addSubview(loadingIndicator)
         
         self.tableView.registerNib(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier:"NewsCell")
