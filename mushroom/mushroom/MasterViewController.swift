@@ -152,7 +152,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         switch(indexPath.section){
         case 0:     return 66.0
         case 1:     return 110.0
-        default:    return 132.0
+        default:    return 142.0
         }
     }
     
@@ -185,9 +185,13 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section==2 {
+            self.title="返回"
+            
             switch(indexPath.row){
+            case 0:
+                var newsTableViewController:NewsTableViewController=NewsTableViewController()
+                self.navigationController?.pushViewController(newsTableViewController, animated: true)
             case 2:
-                self.title="返回"
                 var contactViewController:ContactTableViewController=ContactTableViewController(style:UITableViewStyle.Grouped)
                 self.navigationController?.pushViewController(contactViewController, animated: true)
             default:

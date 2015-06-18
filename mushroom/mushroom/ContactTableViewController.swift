@@ -23,7 +23,7 @@ class ContactTableViewController: UITableViewController {
          self.clearsSelectionOnViewWillAppear = false
 
         
-        print("\(aboutContact)")
+        //print("\(aboutContact)")
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
