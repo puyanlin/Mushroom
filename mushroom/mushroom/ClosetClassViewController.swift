@@ -39,7 +39,20 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         return cell
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 132
+        return self.view.frame.height/4.5
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if cell.respondsToSelector("setSeparatorInset:") {
+            cell.separatorInset=UIEdgeInsetsZero
+        }
+        if cell.respondsToSelector("setPreservesSuperviewLayoutMargins:") {
+            cell.preservesSuperviewLayoutMargins=false
+        }
+        if cell.respondsToSelector("setLayoutMargins:"){
+            cell.layoutMargins=UIEdgeInsetsZero
+        }
+        
     }
 
 }
