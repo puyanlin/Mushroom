@@ -31,22 +31,31 @@ class ClosetTableViewController: UITableViewController {
         loadingIndicator.color=UIColor.yellowColor()
         self.tableView.addSubview(loadingIndicator)
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        var myClosetBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
+        
+        myClosetBtn.setTitle( "我的衣櫃", forState: UIControlState.Normal)
+        let tintColor:UIColor = UIColor(red: 1, green: 0.5, blue: 0, alpha: 1)
+        myClosetBtn.setTitleColor(tintColor, forState: UIControlState.Normal)
+        myClosetBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
+        myClosetBtn.layer.borderWidth=1
+        myClosetBtn.layer.borderColor=tintColor.CGColor
+        myClosetBtn.layer.cornerRadius=5
+        myClosetBtn.addTarget(self, action: "didClickmyClosetBtn:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        var barBtn:UIBarButtonItem=UIBarButtonItem(customView: myClosetBtn)
+        self.navigationItem.rightBarButtonItem=barBtn
         
         var query:PFQuery=PFQuery(className: "Closet")
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
             self.arrayCloset=array as! [PFObject]
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            transition.fillMode = kCAFillModeForwards
-            transition.duration = 0.5
-            transition.subtype = kCATransitionFromBottom
-            self.tableView.layer.addAnimation(transition, forKey: "UITableViewReloadDataAnimationKey")
-            self.tableView.reloadData()
+
+            UIView.transitionWithView(self.tableView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                loadingIndicator.removeFromSuperview()
+                self.tableView.reloadData()
+                }, completion: { (complete) -> Void in
+                    
+            })
             
-            loadingIndicator.removeFromSuperview()
         }
     }
 
@@ -84,6 +93,11 @@ class ClosetTableViewController: UITableViewController {
         if isNew { cell.lblOnSale.text = "新" }
         if onSale { cell.lblOnSale.text = "特價" }
         cell.closetImgView.sd_setImageWithURL(NSURL(string: (closet["CoverURL"] as? String)!))
+        
+        var selectedView:UIView = UIView()
+        selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 240.0/255, alpha: 1);
+        cell.selectedBackgroundView =  selectedView;
+        
         return cell
     }
     
@@ -99,7 +113,16 @@ class ClosetTableViewController: UITableViewController {
         }
     }
     
-
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let closetClassViewController = storyboard.instantiateViewControllerWithIdentifier("ClosetClassViewController") as! ClosetClassViewController
+        self.navigationController?.pushViewController(closetClassViewController, animated: true)
+    }
+    
+    // MARK: - UI Control Events
+    func didClickmyClosetBtn(button:UIButton){
+    
+    }
     
     /*
     // Override to support conditional editing of the table view.

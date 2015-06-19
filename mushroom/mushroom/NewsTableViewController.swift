@@ -89,14 +89,13 @@ class NewsTableViewController: UITableViewController {
             
             loadingIndicator.removeFromSuperview()
             
-            let transition = CATransition()
-            transition.type = kCATransitionPush
-            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            transition.fillMode = kCAFillModeForwards
-            transition.duration = 0.5
-            transition.subtype = kCATransitionFromTop
-            self.tableView.layer.addAnimation(transition, forKey: "UITableViewReloadDataAnimationKey")
-            self.tableView.reloadData()
+            
+            
+            UIView.transitionWithView(self.tableView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                self.tableView.reloadData()
+            }, completion: { (complete) -> Void in
+            
+            })
             
         }
     
