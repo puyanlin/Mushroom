@@ -19,18 +19,22 @@ class BookingManager: NSObject {
     
     func isContainProduct(product:PFObject)->Bool {
         
-        return contains(dicProducts.keys.array, product["mushroomId"] as! String)
+        return contains(dicProducts.keys.array, product.objectId!)
     }
     
     func addProduct(product:PFObject)->Bool{
-        if isContainProduct(product) { return false }
-        dicProducts.updateValue(product, forKey: product["mushroomId"] as! String)
+        dicProducts.updateValue(product, forKey: product.objectId!)
         return true
     }
     
     func removeProduct(product:PFObject) -> Bool {
         if !isContainProduct(product) { return false }
-        dicProducts.removeValueForKey(product["mushroomId"] as! String)
+        dicProducts.removeValueForKey(product.objectId!)
+       
         return true
+    }
+    
+    func arrayProduct()->[PFObject]{
+        return dicProducts.values.array
     }
 }

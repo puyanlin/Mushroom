@@ -21,9 +21,12 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="confirm:" destination="iN0-l3-epB" eventType="touchUpInside" id="PMx-cY-5cw"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="yhZ-Dm-ext" secondAttribute="bottom" constant="8" id="0dR-ZV-Pud"/>
                         <constraint firstItem="yhZ-Dm-ext" firstAttribute="leading" secondItem="wpj-xF-ODr" secondAttribute="leading" constant="8" id="Hfj-TE-WGS"/>

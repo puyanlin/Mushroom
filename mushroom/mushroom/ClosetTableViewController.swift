@@ -125,7 +125,18 @@ class ClosetTableViewController: UITableViewController {
     
     // MARK: - UI Control Events
     func didClickmyClosetBtn(button:UIButton){
-    
+        
+        if BookingManager.sharedManager.arrayProduct().isEmpty {
+            let alert = UIAlertView()
+            alert.title = "衣櫃裡還沒有衣服喔"
+            alert.addButtonWithTitle("好")
+            alert.show()
+            
+            return
+        }
+        
+        var vc:BookingTableViewController=BookingTableViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     /*

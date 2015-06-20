@@ -22,6 +22,7 @@ protocol ClosetCellDelegate : NSObjectProtocol {
 class ClosetCell: UITableViewCell {
 
     let TAG_IMAGE:Int = 50
+    let TAG_PRICE:Int = 60
     
     @IBOutlet weak var pos0View: UIView!
     @IBOutlet weak var pos1View: UIView!
@@ -66,6 +67,10 @@ class ClosetCell: UITableViewCell {
                 productViews[index].hidden=false
                 let imgView:UIImageView = productViews[index].viewWithTag(TAG_IMAGE) as! UIImageView
                 imgView.sd_setImageWithURL(NSURL(string: products[index]["imgUrl"] as! String))
+                
+                let lblPrice:UILabel=productViews[index].viewWithTag(TAG_PRICE) as! UILabel
+                let price:Int=products[index]["price"] as! Int
+                lblPrice.text="$\(price)"
                 
                 if funcType == FunctionType.Overview {
                     for checkmark in checkmarkViews {

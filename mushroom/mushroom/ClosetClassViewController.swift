@@ -38,7 +38,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         
         var funcBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
         funcBtn.setTitle("翻看衣櫃", forState: UIControlState.Normal)
-        funcBtn.setTitle("檢視衣櫃", forState: UIControlState.Selected)
+        funcBtn.setTitle("選取多件", forState: UIControlState.Selected)
         funcBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         funcBtn.setTitleColor(tintColor, forState: UIControlState.Selected)
         funcBtn.layer.borderWidth=1
@@ -55,19 +55,22 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         self.tableView.registerNib(UINib(nibName: "ClosetCell", bundle: nil), forCellReuseIdentifier:"ClosetCell")
         //self.tableView.registerNib(UINib(nibName: "ClostClassFooterConfirmView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ClostClassFooterConfirmView")
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         var query:PFQuery=PFQuery(className: tableClassName)
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
             self.arrayProduct=array as! [PFObject]
             
             self.rowNum = self.arrayProduct.count/3
-            
             self.rowNum=self.rowNum < 1 ? 1 : self.rowNum
-            
             if self.arrayProduct.count>3 && (self.arrayProduct.count % 3)>0 { self.rowNum+=1 }
             
-//            println("product count \(self.arrayProduct.count)")
-//            println("tableClassName \(self.tableClassName)")
-//            println("row num \(self.rowNum)")
+            for product in self.arrayProduct {
+                product.setValue(self.title, forKey: "DisplayName")
+            }
             
             UIView.transitionWithView(self.tableView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                 
@@ -77,7 +80,6 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
             })
             
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -139,6 +141,17 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
     //MARK: UI Control Events
     func didClickmyClosetBtn(button:UIButton){
         
+        if BookingManager.sharedManager.arrayProduct().isEmpty {
+            let alert = UIAlertView()
+            alert.title = "衣櫃裡還沒有衣服喔"
+            alert.addButtonWithTitle("好")
+            alert.show()
+            
+            return
+        }
+        
+        var vc:BookingTableViewController=BookingTableViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func didClickfuncBtn(sender:UIButton){

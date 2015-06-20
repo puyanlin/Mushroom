@@ -8,12 +8,21 @@
 
 import UIKit
 
+protocol ClostClassFooterConfirmViewDelegate:NSObjectProtocol{
+    func didConfirm();
+}
+
 class ClostClassFooterConfirmView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var sendBtn: UIButton!
+    
+    var delegate:ClostClassFooterConfirmViewDelegate!
     
     override func awakeFromNib() {
         sendBtn.layer.cornerRadius=5
     }
 
+    @IBAction func confirm(sender: UIButton) {
+        delegate.didConfirm()
+    }
 }

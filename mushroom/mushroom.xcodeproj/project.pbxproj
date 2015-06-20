@@ -34,6 +34,9 @@
 		3DF2C28B1B34911000C70514 /* ClosetClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */; };
 		3DF2C28D1B359DFE00C70514 /* ProductDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C28C1B359DFE00C70514 /* ProductDetailView.xib */; };
 		3DF2C28F1B359FF200C70514 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */; };
+		3DF2C2911B35BFBE00C70514 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2901B35BFBE00C70514 /* BookingTableViewController.swift */; };
+		3DF2C2931B35D10600C70514 /* BookingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C2921B35D10600C70514 /* BookingView.xib */; };
+		3DF2C2951B35DB8000C70514 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2941B35DB8000C70514 /* BookingView.swift */; };
 		CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */; };
 		CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */; };
 		CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2497A01B2FC8DA00AE688F /* Main.storyboard */; };
@@ -125,6 +128,9 @@
 		3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetClassViewController.swift; sourceTree = "<group>"; };
 		3DF2C28C1B359DFE00C70514 /* ProductDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailView.xib; sourceTree = "<group>"; };
 		3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductDetailView.swift; path = View/ProductDetailView.swift; sourceTree = "<group>"; };
+		3DF2C2901B35BFBE00C70514 /* BookingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
+		3DF2C2921B35D10600C70514 /* BookingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookingView.xib; path = View/BookingView.xib; sourceTree = "<group>"; };
+		3DF2C2941B35DB8000C70514 /* BookingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookingView.swift; path = View/BookingView.swift; sourceTree = "<group>"; };
 		CD2497971B2FC8DA00AE688F /* mushroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mushroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD24979B1B2FC8DA00AE688F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +277,7 @@
 				CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */,
 				CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */,
 				3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */,
+				3DF2C2901B35BFBE00C70514 /* BookingTableViewController.swift */,
 				3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */,
 				CD2497A01B2FC8DA00AE688F /* Main.storyboard */,
 				CD2497A51B2FC8DA00AE688F /* LaunchScreen.xib */,
@@ -365,6 +372,8 @@
 				3DAC048E1B356D8C00B1864E /* ClostClassFooterConfirmView.xib */,
 				3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */,
 				3DF2C28C1B359DFE00C70514 /* ProductDetailView.xib */,
+				3DF2C2941B35DB8000C70514 /* BookingView.swift */,
+				3DF2C2921B35D10600C70514 /* BookingView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -461,6 +470,7 @@
 				CD2497A71B2FC8DA00AE688F /* LaunchScreen.xib in Resources */,
 				3D0D88C51B31289600978C3A /* SalesCell.xib in Resources */,
 				CD2497A41B2FC8DA00AE688F /* Images.xcassets in Resources */,
+				3DF2C2931B35D10600C70514 /* BookingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,8 +504,10 @@
 				3D0D88C41B31289600978C3A /* SalesCell.swift in Sources */,
 				3DF2C28B1B34911000C70514 /* ClosetClassViewController.swift in Sources */,
 				CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */,
+				3DF2C2951B35DB8000C70514 /* BookingView.swift in Sources */,
 				CD9734621B32B88F0087D7E6 /* ClosetTableViewController.swift in Sources */,
 				3D0D88F61B31293000978C3A /* UIImage+WebP.m in Sources */,
+				3DF2C2911B35BFBE00C70514 /* BookingTableViewController.swift in Sources */,
 				3D0D88F81B31293000978C3A /* UIImageView+WebCache.m in Sources */,
 				3DAFF9C31B316834002F2EBD /* ContactTableViewController.swift in Sources */,
 				3D0D88EF1B31293000978C3A /* SDWebImageDownloader.m in Sources */,
