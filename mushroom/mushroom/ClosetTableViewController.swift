@@ -116,6 +116,10 @@ class ClosetTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let closetClassViewController = storyboard.instantiateViewControllerWithIdentifier("ClosetClassViewController") as! ClosetClassViewController
+        let closet:PFObject=self.arrayCloset[indexPath.row]
+        
+        closetClassViewController.title=closet["Name"] as? String
+        closetClassViewController.tableClassName=closet["AssosiatedTable"] as? String
         self.navigationController?.pushViewController(closetClassViewController, animated: true)
     }
     
