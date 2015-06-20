@@ -25,6 +25,9 @@
 		3D0D88F71B31293000978C3A /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E51B31293000978C3A /* UIImageView+HighlightedWebCache.m */; };
 		3D0D88F81B31293000978C3A /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E71B31293000978C3A /* UIImageView+WebCache.m */; };
 		3D0D88F91B31293000978C3A /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E91B31293000978C3A /* UIView+WebCacheOperation.m */; };
+		3DAC04891B35657D00B1864E /* BookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC04881B35657D00B1864E /* BookingManager.swift */; };
+		3DAC048D1B356D7A00B1864E /* ClostClassFooterConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC048C1B356D7A00B1864E /* ClostClassFooterConfirmView.swift */; };
+		3DAC048F1B356D8C00B1864E /* ClostClassFooterConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAC048E1B356D8C00B1864E /* ClostClassFooterConfirmView.xib */; };
 		3DAFF9C31B316834002F2EBD /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */; };
 		3DF2C2881B348D2100C70514 /* ClosetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2861B348D2100C70514 /* ClosetCell.swift */; };
 		3DF2C2891B348D2100C70514 /* ClosetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C2871B348D2100C70514 /* ClosetCell.xib */; };
@@ -111,6 +114,9 @@
 		3D0D88E81B31293000978C3A /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		3D0D88E91B31293000978C3A /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		3D0D88FA1B31424500978C3A /* mushroom-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mushroom-Bridging-Header.h"; sourceTree = "<group>"; };
+		3DAC04881B35657D00B1864E /* BookingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingManager.swift; sourceTree = "<group>"; };
+		3DAC048C1B356D7A00B1864E /* ClostClassFooterConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClostClassFooterConfirmView.swift; path = View/ClostClassFooterConfirmView.swift; sourceTree = "<group>"; };
+		3DAC048E1B356D8C00B1864E /* ClostClassFooterConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClostClassFooterConfirmView.xib; sourceTree = "<group>"; };
 		3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		3DF2C2861B348D2100C70514 /* ClosetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosetCell.swift; path = Cells/ClosetCell.swift; sourceTree = "<group>"; };
 		3DF2C2871B348D2100C70514 /* ClosetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClosetCell.xib; path = Cells/ClosetCell.xib; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 				CD9734571B325A470087D7E6 /* View */,
 				CD2497E41B30089200AE688F /* Cells */,
 				CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */,
+				3DAC04881B35657D00B1864E /* BookingManager.swift */,
 				CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */,
 				CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */,
 				CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */,
@@ -350,6 +357,8 @@
 		CD9734571B325A470087D7E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DAC048C1B356D7A00B1864E /* ClostClassFooterConfirmView.swift */,
+				3DAC048E1B356D8C00B1864E /* ClostClassFooterConfirmView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -437,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD97345F1B3267680087D7E6 /* NewsCell.xib in Resources */,
+				3DAC048F1B356D8C00B1864E /* ClostClassFooterConfirmView.xib in Resources */,
 				3DF2C2891B348D2100C70514 /* ClosetCell.xib in Resources */,
 				CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */,
 				CD9734661B32C5E40087D7E6 /* ClosetViewCell.xib in Resources */,
@@ -468,8 +478,10 @@
 				CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */,
 				CD97345E1B3267680087D7E6 /* NewsCell.swift in Sources */,
 				CD97345B1B3261740087D7E6 /* NewsTableViewController.swift in Sources */,
+				3DAC04891B35657D00B1864E /* BookingManager.swift in Sources */,
 				3D0D88ED1B31293000978C3A /* SDWebImageCompat.m in Sources */,
 				3D0D88F41B31293000978C3A /* UIImage+GIF.m in Sources */,
+				3DAC048D1B356D7A00B1864E /* ClostClassFooterConfirmView.swift in Sources */,
 				3D0D88F21B31293000978C3A /* SDWebImagePrefetcher.m in Sources */,
 				3D0D88C41B31289600978C3A /* SalesCell.swift in Sources */,
 				3DF2C28B1B34911000C70514 /* ClosetClassViewController.swift in Sources */,

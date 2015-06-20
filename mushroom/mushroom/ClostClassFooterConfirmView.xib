@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ClostClassFooterConfirmView" customModule="mushroom" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-xF-ODr">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhZ-Dm-ext">
+                            <rect key="frame" x="8" y="8" width="304" height="50"/>
+                            <color key="backgroundColor" red="0.19654605263157876" green="0.79679790296052644" blue="0.44467002467105038" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                            <state key="normal" title="跟香菇說">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="yhZ-Dm-ext" secondAttribute="bottom" constant="8" id="0dR-ZV-Pud"/>
+                        <constraint firstItem="yhZ-Dm-ext" firstAttribute="leading" secondItem="wpj-xF-ODr" secondAttribute="leading" constant="8" id="Hfj-TE-WGS"/>
+                        <constraint firstItem="yhZ-Dm-ext" firstAttribute="top" secondItem="wpj-xF-ODr" secondAttribute="top" constant="8" id="Rsq-dE-GAj"/>
+                        <constraint firstAttribute="trailing" secondItem="yhZ-Dm-ext" secondAttribute="trailing" constant="8" id="tZM-f7-cx0"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="wpj-xF-ODr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2QO-rS-YPf"/>
+                <constraint firstItem="wpj-xF-ODr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5gD-9f-1ix"/>
+                <constraint firstAttribute="bottom" secondItem="wpj-xF-ODr" secondAttribute="bottom" id="FFA-XC-R4Q"/>
+                <constraint firstAttribute="trailing" secondItem="wpj-xF-ODr" secondAttribute="trailing" id="z7d-2o-j99"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sendBtn" destination="yhZ-Dm-ext" id="tE0-1e-VqS"/>
+            </connections>
+        </view>
+    </objects>
+</document>

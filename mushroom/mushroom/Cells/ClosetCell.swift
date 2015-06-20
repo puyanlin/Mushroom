@@ -30,6 +30,7 @@ class ClosetCell: UITableViewCell {
     var productViews:[UIView]=[]
     var checkmarkViews:[UIImageView]=[]
     var funcType:FunctionType=FunctionType.Overview
+    var arrayProduct:[PFObject]=[]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +52,7 @@ class ClosetCell: UITableViewCell {
     }
     
     func setProducts(products:[PFObject]){
+        arrayProduct=products
         for index in 0...2 {
             if products.count <= index {
                 productViews[index].hidden=true
@@ -64,6 +66,10 @@ class ClosetCell: UITableViewCell {
                     for checkmark in checkmarkViews {
                         checkmark.hidden=true
                     }
+                }else{
+                    let p = products[index]
+                    let checkmark = checkmarkViews[index]
+                    checkmark.hidden = !BookingManager.sharedManager.isContainProduct(p)
                 }
                 
             }
@@ -76,6 +82,13 @@ class ClosetCell: UITableViewCell {
         
         if funcType == FunctionType.Booking {
             checkmarkViews[index].hidden = !checkmarkViews[index].hidden
+            
+            if !checkmarkViews[index].hidden {
+                BookingManager.sharedManager.addProduct(arrayProduct[index])
+            }else{
+                BookingManager.sharedManager.removeProduct(arrayProduct[index])
+            }
+            
         }
     }
 }

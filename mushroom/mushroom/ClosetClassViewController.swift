@@ -41,6 +41,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         rowHeight=self.view.frame.size.height > self.view.frame.size.width ? self.view.frame.size.height/4.5 : self.view.frame.size.height / 2.5
         
         self.tableView.registerNib(UINib(nibName: "ClosetCell", bundle: nil), forCellReuseIdentifier:"ClosetCell")
+        self.tableView.registerNib(UINib(nibName: "ClostClassFooterConfirmView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ClostClassFooterConfirmView")
         
         var query:PFQuery=PFQuery(className: tableClassName)
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
@@ -120,6 +121,18 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
             cell.layoutMargins=UIEdgeInsetsZero
         }
         
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return funcType == FunctionType.Overview ? 0 : 66.0
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        if funcType == FunctionType.Overview { return nil }
+        var confirmFooter=tableView.dequeueReusableHeaderFooterViewWithIdentifier("ClostClassFooterConfirmView") as! ClostClassFooterConfirmView
+        
+        return confirmFooter
     }
     
     //MARK: UI Control Events
