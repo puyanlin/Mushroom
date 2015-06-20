@@ -15,6 +15,10 @@ enum FunctionType:Int{
     case Booking
 }
 
+protocol ClosetCellDelegate : NSObjectProtocol {
+    func didClickProduct(product:PFObject)
+}
+
 class ClosetCell: UITableViewCell {
 
     let TAG_IMAGE:Int = 50
@@ -31,6 +35,7 @@ class ClosetCell: UITableViewCell {
     var checkmarkViews:[UIImageView]=[]
     var funcType:FunctionType=FunctionType.Overview
     var arrayProduct:[PFObject]=[]
+    var delegate:ClosetCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -88,6 +93,10 @@ class ClosetCell: UITableViewCell {
             }else{
                 BookingManager.sharedManager.removeProduct(arrayProduct[index])
             }
+            
+        }else {
+            
+            delegate.didClickProduct(arrayProduct[index])
             
         }
     }

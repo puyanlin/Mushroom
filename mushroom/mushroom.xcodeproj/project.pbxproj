@@ -32,6 +32,8 @@
 		3DF2C2881B348D2100C70514 /* ClosetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2861B348D2100C70514 /* ClosetCell.swift */; };
 		3DF2C2891B348D2100C70514 /* ClosetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C2871B348D2100C70514 /* ClosetCell.xib */; };
 		3DF2C28B1B34911000C70514 /* ClosetClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */; };
+		3DF2C28D1B359DFE00C70514 /* ProductDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C28C1B359DFE00C70514 /* ProductDetailView.xib */; };
+		3DF2C28F1B359FF200C70514 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */; };
 		CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */; };
 		CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */; };
 		CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2497A01B2FC8DA00AE688F /* Main.storyboard */; };
@@ -121,6 +123,8 @@
 		3DF2C2861B348D2100C70514 /* ClosetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosetCell.swift; path = Cells/ClosetCell.swift; sourceTree = "<group>"; };
 		3DF2C2871B348D2100C70514 /* ClosetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClosetCell.xib; path = Cells/ClosetCell.xib; sourceTree = "<group>"; };
 		3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetClassViewController.swift; sourceTree = "<group>"; };
+		3DF2C28C1B359DFE00C70514 /* ProductDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailView.xib; sourceTree = "<group>"; };
+		3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductDetailView.swift; path = View/ProductDetailView.swift; sourceTree = "<group>"; };
 		CD2497971B2FC8DA00AE688F /* mushroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mushroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD24979B1B2FC8DA00AE688F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 			children = (
 				3DAC048C1B356D7A00B1864E /* ClostClassFooterConfirmView.swift */,
 				3DAC048E1B356D8C00B1864E /* ClostClassFooterConfirmView.xib */,
+				3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */,
+				3DF2C28C1B359DFE00C70514 /* ProductDetailView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD97345F1B3267680087D7E6 /* NewsCell.xib in Resources */,
+				3DF2C28D1B359DFE00C70514 /* ProductDetailView.xib in Resources */,
 				3DAC048F1B356D8C00B1864E /* ClostClassFooterConfirmView.xib in Resources */,
 				3DF2C2891B348D2100C70514 /* ClosetCell.xib in Resources */,
 				CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */,
@@ -482,6 +489,7 @@
 				3D0D88ED1B31293000978C3A /* SDWebImageCompat.m in Sources */,
 				3D0D88F41B31293000978C3A /* UIImage+GIF.m in Sources */,
 				3DAC048D1B356D7A00B1864E /* ClostClassFooterConfirmView.swift in Sources */,
+				3DF2C28F1B359FF200C70514 /* ProductDetailView.swift in Sources */,
 				3D0D88F21B31293000978C3A /* SDWebImagePrefetcher.m in Sources */,
 				3D0D88C41B31289600978C3A /* SalesCell.swift in Sources */,
 				3DF2C28B1B34911000C70514 /* ClosetClassViewController.swift in Sources */,

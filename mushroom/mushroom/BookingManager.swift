@@ -12,25 +12,25 @@ import Bolts
 
 class BookingManager: NSObject {
     static let sharedManager : BookingManager = BookingManager()
-    private var arrayProducts:[PFObject] = []
+    private var dicProducts = [String:PFObject]()
     private override init() {
         super.init()
     }
     
     func isContainProduct(product:PFObject)->Bool {
-        return contains(arrayProducts, product)
+        
+        return contains(dicProducts.keys.array, product["mushroomId"] as! String)
     }
     
     func addProduct(product:PFObject)->Bool{
         if isContainProduct(product) { return false }
-        arrayProducts.append(product)
+        dicProducts.updateValue(product, forKey: product["mushroomId"] as! String)
         return true
     }
     
     func removeProduct(product:PFObject) -> Bool {
-        if isContainProduct(product) { return false }
-        var index = find(arrayProducts, product)
-        arrayProducts.removeAtIndex(index!)
+        if !isContainProduct(product) { return false }
+        dicProducts.removeValueForKey(product["mushroomId"] as! String)
         return true
     }
 }

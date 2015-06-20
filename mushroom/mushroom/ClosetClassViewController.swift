@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Bolts
 
-class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, ClosetCellDelegate {
 
     @IBOutlet var tableView: UITableView!
     
@@ -23,11 +23,22 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var funcBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
+        var myClosetBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
         
-        funcBtn.setTitle("翻看衣櫃", forState: UIControlState.Normal)
-        funcBtn.setTitle("預訂衣服", forState: UIControlState.Selected)
+        myClosetBtn.setTitle("我的衣櫃", forState: UIControlState.Normal)
         let tintColor:UIColor = UIColor(red: 1, green: 0.5, blue: 0, alpha: 1)
+        myClosetBtn.setTitleColor(tintColor, forState: UIControlState.Normal)
+        myClosetBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
+        myClosetBtn.layer.borderWidth=1
+        myClosetBtn.layer.borderColor=tintColor.CGColor
+        myClosetBtn.layer.cornerRadius=5
+        myClosetBtn.addTarget(self, action: "didClickmyClosetBtn:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        var barMyClosetBtn:UIBarButtonItem=UIBarButtonItem(customView: myClosetBtn)
+        
+        var funcBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
+        funcBtn.setTitle("翻看衣櫃", forState: UIControlState.Normal)
+        funcBtn.setTitle("檢視衣櫃", forState: UIControlState.Selected)
         funcBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         funcBtn.setTitleColor(tintColor, forState: UIControlState.Selected)
         funcBtn.layer.borderWidth=1
@@ -35,13 +46,14 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         funcBtn.layer.cornerRadius=5
         funcBtn.addTarget(self, action: "didClickfuncBtn:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        var barBtn:UIBarButtonItem=UIBarButtonItem(customView: funcBtn)
-        self.navigationItem.rightBarButtonItem=barBtn
+        var barFunctionBtn:UIBarButtonItem=UIBarButtonItem(customView: funcBtn)
         
+        self.navigationItem.rightBarButtonItems=[barMyClosetBtn,barFunctionBtn]
+            
         rowHeight=self.view.frame.size.height > self.view.frame.size.width ? self.view.frame.size.height/4.5 : self.view.frame.size.height / 2.5
         
         self.tableView.registerNib(UINib(nibName: "ClosetCell", bundle: nil), forCellReuseIdentifier:"ClosetCell")
-        self.tableView.registerNib(UINib(nibName: "ClostClassFooterConfirmView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ClostClassFooterConfirmView")
+        //self.tableView.registerNib(UINib(nibName: "ClostClassFooterConfirmView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ClostClassFooterConfirmView")
         
         var query:PFQuery=PFQuery(className: tableClassName)
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
@@ -103,6 +115,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         }
         cell.funcType=self.funcType
         cell.setProducts(products)
+        cell.delegate=self
         
         return cell
     }
@@ -123,19 +136,11 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return funcType == FunctionType.Overview ? 0 : 66.0
-    }
-    
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        if funcType == FunctionType.Overview { return nil }
-        var confirmFooter=tableView.dequeueReusableHeaderFooterViewWithIdentifier("ClostClassFooterConfirmView") as! ClostClassFooterConfirmView
-        
-        return confirmFooter
-    }
-    
     //MARK: UI Control Events
+    func didClickmyClosetBtn(button:UIButton){
+        
+    }
+    
     func didClickfuncBtn(sender:UIButton){
         sender.selected = !sender.selected
         
@@ -146,4 +151,12 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         self.tableView.reloadData()
     }
     
+    //MARK: - ClosetCellDelegate
+    func didClickProduct(product: PFObject) {
+        var view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
+        view.frame=self.view.frame
+        view.product=product
+        
+        self.navigationController?.view.addSubview(view)
+    }
 }
