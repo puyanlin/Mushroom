@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Bolts
 
-class BookingTableViewController: UITableViewController,UIAlertViewDelegate,ProductDetailViewDelegate,ClostClassFooterConfirmViewDelegate {
+class BookingTableViewController: UITableViewController,UIAlertViewDelegate,ProductDetailViewDelegate,ClostClassFooterConfirmViewDelegate,BookingViewDelegate {
 
     var arrayProduct:[PFObject]!
     
@@ -136,9 +136,14 @@ class BookingTableViewController: UITableViewController,UIAlertViewDelegate,Prod
     func didConfirm(){
         var view:BookingView=NSBundle.mainBundle().loadNibNamed("BookingView", owner: nil, options: nil)[0] as! BookingView
         view.frame=self.view.frame
-        
+        view.bookingList=arrayProduct
+        view.delegate=self
         
         self.navigationController?.view.addSubview(view)
+    }
+    //MARK - BookingViewDelegate
+    func didBookingFinished(bookingSerial:String){
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
     /*

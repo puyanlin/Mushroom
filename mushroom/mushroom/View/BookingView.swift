@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
-class BookingView: UIView {
+protocol BookingViewDelegate:NSObjectProtocol{
+    func didBookingFinished(bookingSerial:String)
+}
+
+class BookingView: UIView , UIAlertViewDelegate {
 
     let KEY_USERNAME    : String = "USERNAME"
     let KEY_PHONE       : String = "PHONE"
@@ -21,6 +27,10 @@ class BookingView: UIView {
     @IBOutlet var cancelBtn: UIButton!
     @IBOutlet var switchSaveInfo: UISwitch!
     @IBOutlet var loadingView: UIView!
+    
+    var bookingInformation:PFObject!
+    var bookingList:[PFObject]!
+    var delegate:BookingViewDelegate!
     
     override func awakeFromNib() {
         dialogView.layer.cornerRadius=5
@@ -71,7 +81,30 @@ class BookingView: UIView {
         NSUserDefaults.standardUserDefaults().synchronize()
         
         self.loadingView.hidden=false
-        //self.removeFromSuperview()
+        
+        var items:[String]=[]
+        var totalPrice:Int=0
+        
+        for product in bookingList {
+            items.append(product["mushroomId"] as! String)
+            var price:Int = product["price"] as! Int
+            totalPrice += price
+        }
+        
+        bookingInformation=PFObject(className: "BookingList", dictionary: ["customer":self.nameField.text,"phone":self.phoneField.text,"items":bookingList,"totalPrice":totalPrice,"handled":false])
+        bookingInformation.saveInBackgroundWithBlock { (complete:Bool, error:NSError?) -> Void in
+            //print("list id:\(self.bookingInformation.objectId)")
+            
+            //self.removeFromSuperview()
+            let bookingSerial:String!=self.bookingInformation.objectId
+            
+            let alert = UIAlertView()
+            alert.title = "預定成功"
+            alert.message = "預定單號 \(bookingSerial) ，香菇會盡快與您聯絡，謝謝"
+            alert.addButtonWithTitle("好")
+            alert.delegate=self
+            alert.show()
+        }
         
     }
     @IBAction func cancel(sender: UIButton) {
@@ -81,5 +114,11 @@ class BookingView: UIView {
     }
     @IBAction func editBegin(sender: UITextField) {
         sender.layer.borderColor=UIColor.lightGrayColor().CGColor
+    }
+    
+    //MARK: - UIAlertViewDelegate
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        self.removeFromSuperview()
+        delegate.didBookingFinished(self.bookingInformation.objectId!)
     }
 }
