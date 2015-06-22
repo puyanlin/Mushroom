@@ -41,7 +41,6 @@ class NewsCell: UITableViewCell {
                 self.lblType.text="公休"
                 self.tagView.backgroundColor=UIColor(red: 228.0/255, green: 0, blue: 58.0/255, alpha: 1)
                 self.backgroundColor=UIColor(red: 1, green: 64.0/255, blue: 86.0/255, alpha: 1)
-            default: break
             }
         }
     }

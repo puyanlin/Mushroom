@@ -44,7 +44,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.loadingIndicator.hidden=false
         self.tableView.hidden=true
         
-        PFConfig.getConfigInBackgroundWithBlock { (var cfg:PFConfig?, var error:NSError?) -> Void in
+        PFConfig.getConfigInBackgroundWithBlock { ( cfg:PFConfig?, error:NSError?) -> Void in
             self.appConfig = cfg as PFConfig!
             
             self.loadingIndicator.hidden=true
@@ -99,7 +99,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         switch(indexPath.section){
             case 0:
-                var cell=tableView.dequeueReusableCellWithIdentifier("OpenOffCell") as! OpenOffCell
+                let cell:OpenOffCell! = tableView.dequeueReusableCellWithIdentifier("OpenOffCell", forIndexPath: indexPath) as! OpenOffCell
                 
                 let open=self.appConfig["open"] as! Bool
                 cell.isOpen=open
@@ -114,16 +114,16 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
                 return cell
             case 1:
-                var cell=tableView.dequeueReusableCellWithIdentifier("SalesCell") as! SalesCell
+                let cell:SalesCell = tableView.dequeueReusableCellWithIdentifier("SalesCell") as! SalesCell
                 let salesInfo=self.appConfig["saleContent"] as! String
-                cell.tvSales.text=salesInfo.stringByReplacingOccurrencesOfString("\\n", withString: "\n", options: nil , range: nil)
+                cell.tvSales.text=salesInfo.stringByReplacingOccurrencesOfString("\\n", withString: "\n")
                 let size=self.appConfig["saleTextSize"] as! CGFloat
                 cell.tvSales.font = UIFont.systemFontOfSize(size)
                 cell.tvSales.textColor=UIColor.whiteColor()
                 cell.imgUrl=self.appConfig["saleImage"] as! String
                 return cell
             default:
-                var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+                let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell")!
                 
                 cell.textLabel?.text = arrayTitle[indexPath.row]
                 switch(indexPath.row){
@@ -136,7 +136,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 }
                 cell.contentView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
                 
-                var selectedView:UIView = UIView()
+                let selectedView:UIView = UIView()
                 selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3);
                 cell.selectedBackgroundView =  selectedView;
                 
@@ -189,13 +189,13 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
             switch(indexPath.row){
             case 0:
-                var newsTableViewController:NewsTableViewController=NewsTableViewController()
+                let newsTableViewController:NewsTableViewController=NewsTableViewController()
                 self.navigationController?.pushViewController(newsTableViewController, animated: true)
             case 1:
-                var closetTableViewController:ClosetTableViewController=ClosetTableViewController()
+                let closetTableViewController:ClosetTableViewController=ClosetTableViewController()
                 self.navigationController?.pushViewController(closetTableViewController, animated: true)
             case 2:
-                var contactViewController:ContactTableViewController=ContactTableViewController(style:UITableViewStyle.Grouped)
+                let contactViewController:ContactTableViewController=ContactTableViewController(style:UITableViewStyle.Grouped)
                 self.navigationController?.pushViewController(contactViewController, animated: true)
             default:
                 break

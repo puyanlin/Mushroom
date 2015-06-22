@@ -25,13 +25,13 @@ class ClosetTableViewController: UITableViewController {
 
         self.tableView.tableFooterView=UIView()
         
-        var loadingIndicator:UIActivityIndicatorView=UIActivityIndicatorView(frame:CGRect(x: self.tableView.frame.width/2-25, y: 10, width: 50, height: 50))
+        let loadingIndicator:UIActivityIndicatorView=UIActivityIndicatorView(frame:CGRect(x: self.tableView.frame.width/2-25, y: 10, width: 50, height: 50))
         loadingIndicator.startAnimating()
         loadingIndicator.activityIndicatorViewStyle=UIActivityIndicatorViewStyle.WhiteLarge
         loadingIndicator.color=UIColor.yellowColor()
         self.tableView.addSubview(loadingIndicator)
         
-        var myClosetBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
+        let myClosetBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
         
         myClosetBtn.setTitle( "我的衣櫃", forState: UIControlState.Normal)
         let tintColor:UIColor = UIColor(red: 1, green: 0.5, blue: 0, alpha: 1)
@@ -42,13 +42,13 @@ class ClosetTableViewController: UITableViewController {
         myClosetBtn.layer.cornerRadius=5
         myClosetBtn.addTarget(self, action: "didClickmyClosetBtn:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        var barBtn:UIBarButtonItem=UIBarButtonItem(customView: myClosetBtn)
+        let barBtn:UIBarButtonItem=UIBarButtonItem(customView: myClosetBtn)
         self.navigationItem.rightBarButtonItem=barBtn
         
-        var query:PFQuery=PFQuery(className: "Closet")
+        let query:PFQuery=PFQuery(className: "Closet")
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
             self.arrayCloset=array as! [PFObject]
-            self.arrayCloset.sort({ (obj1:PFObject, obj2:PFObject) -> Bool in
+            self.arrayCloset.sortInPlace({ (obj1:PFObject, obj2:PFObject) -> Bool in
                 let order1:Int=obj1["order"] as! Int
                 let order2:Int=obj2["order"] as! Int
                 return order1<order2
@@ -88,7 +88,7 @@ class ClosetTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell=tableView.dequeueReusableCellWithIdentifier("ClosetViewCell") as! ClosetViewCell
+        let cell=tableView.dequeueReusableCellWithIdentifier("ClosetViewCell") as! ClosetViewCell
 
         let closet:PFObject=self.arrayCloset[indexPath.row]
         cell.lblName.text=closet["Name"] as? String
@@ -99,7 +99,7 @@ class ClosetTableViewController: UITableViewController {
         if onSale { cell.lblOnSale.text = "特價" }
         cell.closetImgView.sd_setImageWithURL(NSURL(string: (closet["CoverURL"] as? String)!))
         
-        var selectedView:UIView = UIView()
+        let selectedView:UIView = UIView()
         selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 240.0/255, alpha: 1);
         cell.selectedBackgroundView =  selectedView;
         
@@ -140,7 +140,7 @@ class ClosetTableViewController: UITableViewController {
             return
         }
         
-        var vc:BookingTableViewController=BookingTableViewController()
+        let vc:BookingTableViewController=BookingTableViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

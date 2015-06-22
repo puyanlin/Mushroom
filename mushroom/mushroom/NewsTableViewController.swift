@@ -41,7 +41,7 @@ class NewsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        var sortBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 65, height: 35))
+        let sortBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 65, height: 35))
         
         sortBtn.setTitle( sortType == NewsSortType.ByTime ? "按時間":"按分類", forState: UIControlState.Normal)
         let tintColor:UIColor = UIColor(red: 1, green: 0.5, blue: 0, alpha: 1)
@@ -52,10 +52,10 @@ class NewsTableViewController: UITableViewController {
         sortBtn.layer.cornerRadius=5
         sortBtn.addTarget(self, action: "didClickSortBtn:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        var barSortBtn:UIBarButtonItem=UIBarButtonItem(customView: sortBtn)
+        let barSortBtn:UIBarButtonItem=UIBarButtonItem(customView: sortBtn)
         self.navigationItem.rightBarButtonItem=barSortBtn
         
-        var loadingIndicator:UIActivityIndicatorView=UIActivityIndicatorView(frame:CGRect(x: self.tableView.frame.width/2-25, y: 10, width: 50, height: 50))
+        let loadingIndicator:UIActivityIndicatorView=UIActivityIndicatorView(frame:CGRect(x: self.tableView.frame.width/2-25, y: 10, width: 50, height: 50))
         loadingIndicator.startAnimating()
         loadingIndicator.activityIndicatorViewStyle=UIActivityIndicatorViewStyle.WhiteLarge
         loadingIndicator.color=UIColor.yellowColor()
@@ -65,11 +65,11 @@ class NewsTableViewController: UITableViewController {
         
         self.tableView.tableFooterView=UIView()
         
-        var query:PFQuery=PFQuery(className: "News")
+        let query:PFQuery=PFQuery(className: "News")
         query.findObjectsInBackgroundWithBlock { ( arrayNews: [AnyObject]?,error:NSError?) -> Void in
             
             self.arrayAllTypeNews = arrayNews as! [PFObject]
-            self.arrayAllTypeNews.sort({ (obj1, obj2) -> Bool in
+            self.arrayAllTypeNews.sortInPlace({ (obj1:PFObject, obj2:PFObject) -> Bool in
                 return true
             })
             
@@ -83,7 +83,6 @@ class NewsTableViewController: UITableViewController {
                     self.arrayActivity.append(news)
                 case .Close:
                     self.arrayClose.append(news)
-                default: break
                 }
             }
             

@@ -18,8 +18,8 @@ class BookingManager: NSObject {
     }
     
     func isContainProduct(product:PFObject)->Bool {
-        
-        return contains(dicProducts.keys.array, product.objectId!)
+
+        return dicProducts.keys.array.contains(product.objectId!)
     }
     
     func addProduct(product:PFObject)->Bool{

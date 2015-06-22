@@ -47,15 +47,15 @@ class BookingTableViewController: UITableViewController,UIAlertViewDelegate,Prod
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell=tableView.dequeueReusableCellWithIdentifier("ClosetViewCell") as! ClosetViewCell
+        let cell=tableView.dequeueReusableCellWithIdentifier("ClosetViewCell") as! ClosetViewCell
         
         let product:PFObject = self.arrayProduct[indexPath.row]
         cell.lblName.text=product["DisplayName"] as? String
         cell.closetImgView.sd_setImageWithURL(NSURL(string: (product["imgUrl"] as? String)!))
-        var price:Int = product["price"] as! Int
+        let price:Int = product["price"] as! Int
         cell.lblOnSale.text="$\(price)"
         
-        var selectedView:UIView = UIView()
+        let selectedView:UIView = UIView()
         selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 240.0/255, alpha: 1);
         cell.selectedBackgroundView =  selectedView;
         
@@ -63,7 +63,7 @@ class BookingTableViewController: UITableViewController,UIAlertViewDelegate,Prod
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
+        let view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
         view.frame=self.view.frame
         
         let product:PFObject = self.arrayProduct[indexPath.row]
@@ -77,7 +77,7 @@ class BookingTableViewController: UITableViewController,UIAlertViewDelegate,Prod
         var totalPrice:Int=0
         
         for product in arrayProduct {
-            var price:Int = product["price"] as! Int
+            let price:Int = product["price"] as! Int
             totalPrice += price
         }
         
@@ -86,7 +86,7 @@ class BookingTableViewController: UITableViewController,UIAlertViewDelegate,Prod
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        var confirmFooter=tableView.dequeueReusableHeaderFooterViewWithIdentifier("ClostClassFooterConfirmView") as! ClostClassFooterConfirmView
+        let confirmFooter=tableView.dequeueReusableHeaderFooterViewWithIdentifier("ClostClassFooterConfirmView") as! ClostClassFooterConfirmView
         confirmFooter.delegate=self
         
         return confirmFooter
@@ -134,7 +134,7 @@ class BookingTableViewController: UITableViewController,UIAlertViewDelegate,Prod
 
     //MARK: - ClostClassFooterConfirmViewDelegate
     func didConfirm(){
-        var view:BookingView=NSBundle.mainBundle().loadNibNamed("BookingView", owner: nil, options: nil)[0] as! BookingView
+        let view:BookingView=NSBundle.mainBundle().loadNibNamed("BookingView", owner: nil, options: nil)[0] as! BookingView
         view.frame=self.view.frame
         view.bookingList=arrayProduct
         view.delegate=self

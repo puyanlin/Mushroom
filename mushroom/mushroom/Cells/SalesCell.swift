@@ -15,7 +15,7 @@ class SalesCell: UITableViewCell {
     
     var imgUrl:String=""{
         didSet{
-            if count(imgUrl)>10 {
+            if imgUrl.characters.count>10 {
                 self.salesImage.sd_setImageWithURL(NSURL(string: imgUrl))
             }
         }
