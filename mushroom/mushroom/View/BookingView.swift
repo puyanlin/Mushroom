@@ -91,11 +91,9 @@ class BookingView: UIView , UIAlertViewDelegate {
             totalPrice += price
         }
         
-        bookingInformation=PFObject(className: "BookingList", dictionary: ["customer":self.nameField.text,"phone":self.phoneField.text,"items":bookingList,"totalPrice":totalPrice,"handled":false])
+        bookingInformation=PFObject(className: "BookingList", dictionary: ["customer":self.nameField.text,"phone":self.phoneField.text,"items":items,"itemsData":bookingList,"totalPrice":totalPrice,"handled":false])
         bookingInformation.saveInBackgroundWithBlock { (complete:Bool, error:NSError?) -> Void in
-            //print("list id:\(self.bookingInformation.objectId)")
             
-            //self.removeFromSuperview()
             let bookingSerial:String!=self.bookingInformation.objectId
             
             let alert = UIAlertView()
@@ -104,6 +102,19 @@ class BookingView: UIView , UIAlertViewDelegate {
             alert.addButtonWithTitle("好")
             alert.delegate=self
             alert.show()
+            
+            var arrayBookingId:NSMutableArray=NSMutableArray()
+            
+            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+            var path = paths.stringByAppendingPathComponent("bookingData.plist")
+            var fileManager = NSFileManager.defaultManager()
+            
+            if fileManager.fileExistsAtPath(path) {
+                arrayBookingId = NSMutableArray(contentsOfFile: path)!
+            }
+            
+            arrayBookingId.insertObject(NSString(string: bookingSerial), atIndex: 0)
+            arrayBookingId.writeToFile(path, atomically: true)
         }
         
     }

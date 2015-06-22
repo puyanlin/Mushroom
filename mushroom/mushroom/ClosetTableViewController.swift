@@ -48,6 +48,11 @@ class ClosetTableViewController: UITableViewController {
         var query:PFQuery=PFQuery(className: "Closet")
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
             self.arrayCloset=array as! [PFObject]
+            self.arrayCloset.sort({ (obj1:PFObject, obj2:PFObject) -> Bool in
+                let order1:Int=obj1["order"] as! Int
+                let order2:Int=obj2["order"] as! Int
+                return order1<order2
+            })
 
             UIView.transitionWithView(self.tableView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                 loadingIndicator.removeFromSuperview()

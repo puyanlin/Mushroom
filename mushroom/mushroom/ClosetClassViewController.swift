@@ -68,9 +68,9 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
             self.rowNum=self.rowNum < 1 ? 1 : self.rowNum
             if self.arrayProduct.count>3 && (self.arrayProduct.count % 3)>0 { self.rowNum+=1 }
             
-            for product in self.arrayProduct {
-                product.setValue(self.title, forKey: "DisplayName")
-            }
+//            for product in self.arrayProduct {
+//                product.setValue(self.title, forKey: "DisplayName")
+//            }
             
             UIView.transitionWithView(self.tableView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                 
