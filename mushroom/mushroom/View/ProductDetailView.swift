@@ -20,6 +20,11 @@ class ProductDetailView: UIView {
     @IBOutlet var submitBtn: UIButton!
     
     var delegate:ProductDetailViewDelegate!
+    var isMagnage:Bool=false{
+        didSet{
+            submitBtn.hidden=true
+        }
+    }
     
     var product:PFObject!{
         didSet{

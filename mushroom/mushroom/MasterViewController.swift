@@ -11,7 +11,7 @@ import Parse
 import Bolts
 
 class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate{
-
+    
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
@@ -83,7 +83,10 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     //MARK: UITableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.appConfig==nil ? 0 : 4
+        
+        if AppDelegate.MANAGE { return self.appConfig==nil ? 0 : 4 }
+        
+        return self.appConfig==nil ? 0 : 3
         
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -174,7 +177,8 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section==3 { return 0 }
+        if AppDelegate.MANAGE { if section==3 { return 0 } }
+        else { if section==2 { return 0 } }
         return 25
     }
     

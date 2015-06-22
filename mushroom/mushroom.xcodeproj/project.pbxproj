@@ -37,6 +37,8 @@
 		3DF2C2911B35BFBE00C70514 /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2901B35BFBE00C70514 /* BookingTableViewController.swift */; };
 		3DF2C2931B35D10600C70514 /* BookingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C2921B35D10600C70514 /* BookingView.xib */; };
 		3DF2C2951B35DB8000C70514 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2941B35DB8000C70514 /* BookingView.swift */; };
+		3DF2C2981B3862D900C70514 /* CheckBookingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2961B3862D900C70514 /* CheckBookingCell.swift */; };
+		3DF2C2991B3862D900C70514 /* CheckBookingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C2971B3862D900C70514 /* CheckBookingCell.xib */; };
 		CD24979D1B2FC8DA00AE688F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */; };
 		CD24979F1B2FC8DA00AE688F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */; };
 		CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD2497A01B2FC8DA00AE688F /* Main.storyboard */; };
@@ -132,6 +134,8 @@
 		3DF2C2901B35BFBE00C70514 /* BookingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingTableViewController.swift; sourceTree = "<group>"; };
 		3DF2C2921B35D10600C70514 /* BookingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BookingView.xib; path = View/BookingView.xib; sourceTree = "<group>"; };
 		3DF2C2941B35DB8000C70514 /* BookingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookingView.swift; path = View/BookingView.swift; sourceTree = "<group>"; };
+		3DF2C2961B3862D900C70514 /* CheckBookingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckBookingCell.swift; path = Cells/CheckBookingCell.swift; sourceTree = "<group>"; };
+		3DF2C2971B3862D900C70514 /* CheckBookingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckBookingCell.xib; path = Cells/CheckBookingCell.xib; sourceTree = "<group>"; };
 		CD2497971B2FC8DA00AE688F /* mushroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mushroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD24979B1B2FC8DA00AE688F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -364,6 +368,8 @@
 				CD9734641B32C5E40087D7E6 /* ClosetViewCell.xib */,
 				3DF2C2861B348D2100C70514 /* ClosetCell.swift */,
 				3DF2C2871B348D2100C70514 /* ClosetCell.xib */,
+				3DF2C2961B3862D900C70514 /* CheckBookingCell.swift */,
+				3DF2C2971B3862D900C70514 /* CheckBookingCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF2C2991B3862D900C70514 /* CheckBookingCell.xib in Resources */,
 				CD97345F1B3267680087D7E6 /* NewsCell.xib in Resources */,
 				3DF2C28D1B359DFE00C70514 /* ProductDetailView.xib in Resources */,
 				3DAC048F1B356D8C00B1864E /* ClostClassFooterConfirmView.xib in Resources */,
@@ -517,6 +524,7 @@
 				3D0D88F91B31293000978C3A /* UIView+WebCacheOperation.m in Sources */,
 				CD93BD511B37FC170099790E /* BookingHandleViewController.swift in Sources */,
 				3D0D88F31B31293000978C3A /* UIButton+WebCache.m in Sources */,
+				3DF2C2981B3862D900C70514 /* CheckBookingCell.swift in Sources */,
 				3D0D88EA1B31293000978C3A /* MKAnnotationView+WebCache.m in Sources */,
 				CD9734651B32C5E40087D7E6 /* ClosetViewCell.swift in Sources */,
 				3D0D88EB1B31293000978C3A /* NSData+ImageContentType.m in Sources */,

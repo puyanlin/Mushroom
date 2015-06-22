@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Bolts
 
-class BookingHandleViewController: UITableViewController {
+class BookingHandleViewController: UITableViewController , CheckBookingCellDelegate {
 
     var bookingList:[PFObject]=[]
     
@@ -23,6 +23,7 @@ class BookingHandleViewController: UITableViewController {
 
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.tableView.registerNib(UINib(nibName: "ClosetViewCell", bundle: nil), forCellReuseIdentifier:"ClosetViewCell")
+        self.tableView.registerNib(UINib(nibName: "CheckBookingCell", bundle: nil), forCellReuseIdentifier:"CheckBookingCell")
         
         var query:PFQuery=PFQuery(className: "BookingList")
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
@@ -35,17 +36,6 @@ class BookingHandleViewController: UITableViewController {
             }
             
             self.tableView.reloadData()
-            
-            for section in 0...(self.bookingList.count-1) {
-                let info = self.bookingList[section]
-                for product in info["itemsData"] as! [PFObject] {
-                    product.fetchInBackgroundWithBlock({ (pfObj:PFObject?, error:NSError?) -> Void in
-                        let url:String = product["imgUrl"] as! String
-                        
-                        self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: UITableViewRowAnimation.Fade)
-                    })
-                }
-            }
             
         }
         
@@ -71,9 +61,9 @@ class BookingHandleViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var bookingInfo = bookingList[indexPath.section]
+        let bookingInfo = bookingList[indexPath.section]
         
-        if indexPath.row == 0 || indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1 {
+        if indexPath.row == 0  {
             let cell=UITableViewCell(style:UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
 
             cell.textLabel?.text=bookingInfo["customer"] as? String
@@ -82,17 +72,33 @@ class BookingHandleViewController: UITableViewController {
             return cell
         }
         
-        var cell=tableView.dequeueReusableCellWithIdentifier("ClosetViewCell") as! ClosetViewCell
+        if indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1 {
+            let cell=tableView.dequeueReusableCellWithIdentifier("CheckBookingCell") as! CheckBookingCell
+            cell.delegate=self
+            cell.section=indexPath.section
+            
+            var totalPrice:Int=bookingInfo["totalPrice"] as! Int
+            cell.price=totalPrice
+            
+            cell.selectionStyle=UITableViewCellSelectionStyle.None
+            
+            return cell
+        }
         
+        let cell=tableView.dequeueReusableCellWithIdentifier("ClosetViewCell") as! ClosetViewCell
+        let items:[PFObject]=bookingInfo["itemsData"] as! [PFObject]
+        let product=items[indexPath.row-1]
         
-//        cell.lblName.text=product["DisplayName"] as? String
-//        cell.closetImgView.sd_setImageWithURL(NSURL(string: (product["imgUrl"] as? String)!))
-//        var price:Int = product["price"] as! Int
-//        cell.lblOnSale.text="$\(price)"
-//        
-//        var selectedView:UIView = UIView()
-//        selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 240.0/255, alpha: 1);
-//        cell.selectedBackgroundView =  selectedView;
+        product.fetchIfNeededInBackgroundWithBlock { (pfObj:PFObject?, error:NSError?) -> Void in
+            cell.lblName.text=product["DisplayName"] as? String
+            cell.closetImgView.sd_setImageWithURL(NSURL(string: (product["imgUrl"] as? String)!))
+            var mushroonId:String = bookingInfo["items"]![indexPath.row-1] as! String
+            cell.lblOnSale.text="貨號: \(mushroonId)"
+        }
+        
+        var selectedView:UIView = UIView()
+        selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 240.0/255, alpha: 1);
+        cell.selectedBackgroundView =  selectedView;
         
         return cell
         
@@ -105,6 +111,39 @@ class BookingHandleViewController: UITableViewController {
         let count:Int = (info["items"] as! [String]).count
         if  indexPath.row == (count + 1) { return 55.0 }
         return 88.0
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let bookingInfo = bookingList[indexPath.section]
+        
+        if indexPath.row == 0 {
+            let phone = bookingInfo["phone"] as! String
+            UIApplication.sharedApplication().openURL(NSURL(string: String("telprompt://\(phone)"))!)
+        }else if indexPath.row < tableView.numberOfRowsInSection(indexPath.section)-1 {
+            
+            var view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
+            view.frame=self.view.frame
+            
+            let items:[PFObject]=bookingInfo["itemsData"] as! [PFObject]
+            let product=items[indexPath.row-1]
+            product.fetchIfNeededInBackgroundWithBlock { (pfObj:PFObject?, error:NSError?) -> Void in
+                view.product = product
+            }
+            view.isMagnage=true
+            self.navigationController?.view.addSubview(view)
+        }
+    }
+    
+    //MARK: - CheckBookingCellDelegate
+    func didConfirmAtSection(section: Int) {
+        let bookingInfo = bookingList[section]
+        bookingInfo["handled"] = true
+        bookingInfo.saveInBackgroundWithBlock { (complete:Bool, error:NSError?) -> Void in
+            
+            self.bookingList.removeAtIndex(section)
+            self.tableView.reloadData()
+        }
     }
 
     /*
