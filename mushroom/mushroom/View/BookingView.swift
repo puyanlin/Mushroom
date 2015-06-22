@@ -130,6 +130,7 @@ class BookingView: UIView , UIAlertViewDelegate {
     //MARK: - UIAlertViewDelegate
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         self.removeFromSuperview()
+        BookingManager.sharedManager.clearBooking()
         delegate.didBookingFinished(self.bookingInformation.objectId!)
     }
 }

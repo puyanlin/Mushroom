@@ -37,4 +37,7 @@ class BookingManager: NSObject {
     func arrayProduct()->[PFObject]{
         return dicProducts.values.array
     }
+    func clearBooking(){
+        dicProducts.removeAll(keepCapacity: false)
+    }
 }
