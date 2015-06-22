@@ -83,7 +83,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     //MARK: UITableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.appConfig==nil ? 0 : 3
+        return self.appConfig==nil ? 0 : 4
         
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,9 +122,9 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 cell.tvSales.textColor=UIColor.whiteColor()
                 cell.imgUrl=self.appConfig["saleImage"] as! String
                 return cell
-            default:
+            case 2:
                 var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-                
+
                 cell.textLabel?.text = arrayTitle[indexPath.row]
                 switch(indexPath.row){
                 case 0:
@@ -144,6 +144,23 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 cell.textLabel?.textColor=UIColor.darkGrayColor()
                 
                 return cell
+            default:
+                var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+                
+                cell.textLabel?.text = "處理訂單 >"
+                
+                cell.contentView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+                
+                var selectedView:UIView = UIView()
+                selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3);
+                cell.selectedBackgroundView =  selectedView;
+                
+                cell.textLabel?.font=UIFont(name: "Arial-BoldMT", size: 30)
+                cell.textLabel?.textColor=UIColor.darkGrayColor()
+                
+                cell.selectionStyle=UITableViewCellSelectionStyle.None
+                
+                return cell
         }
         
         
@@ -157,7 +174,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section==2 { return 0 }
+        if section==3 { return 0 }
         return 25
     }
     
@@ -189,18 +206,22 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
             switch(indexPath.row){
             case 0:
-                var newsTableViewController:NewsTableViewController=NewsTableViewController()
+                let newsTableViewController:NewsTableViewController=NewsTableViewController()
                 self.navigationController?.pushViewController(newsTableViewController, animated: true)
             case 1:
-                var closetTableViewController:ClosetTableViewController=ClosetTableViewController()
+                let closetTableViewController:ClosetTableViewController=ClosetTableViewController()
                 self.navigationController?.pushViewController(closetTableViewController, animated: true)
             case 2:
-                var contactViewController:ContactTableViewController=ContactTableViewController(style:UITableViewStyle.Grouped)
+                let contactViewController:ContactTableViewController=ContactTableViewController(style:UITableViewStyle.Grouped)
                 self.navigationController?.pushViewController(contactViewController, animated: true)
             default:
                 break
             }
+        }else if indexPath.section == 3 {
+            let bookViewController:BookingHandleViewController=BookingHandleViewController(style:UITableViewStyle.Grouped)
+            self.navigationController?.pushViewController(bookViewController, animated: true)
         }
+        
     }
 
 

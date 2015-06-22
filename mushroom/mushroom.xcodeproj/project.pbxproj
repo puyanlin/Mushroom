@@ -64,6 +64,7 @@
 		CD2497E31B2FF47B00AE688F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497E21B2FF47B00AE688F /* Social.framework */; };
 		CD2497E71B3008FA00AE688F /* OpenOffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2497E51B3008FA00AE688F /* OpenOffCell.swift */; };
 		CD2497E81B3008FA00AE688F /* OpenOffCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD2497E61B3008FA00AE688F /* OpenOffCell.xib */; };
+		CD93BD511B37FC170099790E /* BookingHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93BD501B37FC170099790E /* BookingHandleViewController.swift */; };
 		CD97345B1B3261740087D7E6 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */; };
 		CD97345E1B3267680087D7E6 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97345C1B3267680087D7E6 /* NewsCell.swift */; };
 		CD97345F1B3267680087D7E6 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD97345D1B3267680087D7E6 /* NewsCell.xib */; };
@@ -162,6 +163,7 @@
 		CD2497E21B2FF47B00AE688F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CD2497E51B3008FA00AE688F /* OpenOffCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenOffCell.swift; path = Cells/OpenOffCell.swift; sourceTree = "<group>"; };
 		CD2497E61B3008FA00AE688F /* OpenOffCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OpenOffCell.xib; path = Cells/OpenOffCell.xib; sourceTree = "<group>"; };
+		CD93BD501B37FC170099790E /* BookingHandleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingHandleViewController.swift; sourceTree = "<group>"; };
 		CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		CD97345C1B3267680087D7E6 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = Cells/NewsCell.swift; sourceTree = "<group>"; };
 		CD97345D1B3267680087D7E6 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsCell.xib; path = Cells/NewsCell.xib; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */,
 				3DF2C2901B35BFBE00C70514 /* BookingTableViewController.swift */,
 				3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */,
+				CD93BD501B37FC170099790E /* BookingHandleViewController.swift */,
 				CD2497A01B2FC8DA00AE688F /* Main.storyboard */,
 				CD2497A51B2FC8DA00AE688F /* LaunchScreen.xib */,
 				CD2497A31B2FC8DA00AE688F /* Images.xcassets */,
@@ -512,6 +515,7 @@
 				3DAFF9C31B316834002F2EBD /* ContactTableViewController.swift in Sources */,
 				3D0D88EF1B31293000978C3A /* SDWebImageDownloader.m in Sources */,
 				3D0D88F91B31293000978C3A /* UIView+WebCacheOperation.m in Sources */,
+				CD93BD511B37FC170099790E /* BookingHandleViewController.swift in Sources */,
 				3D0D88F31B31293000978C3A /* UIButton+WebCache.m in Sources */,
 				3D0D88EA1B31293000978C3A /* MKAnnotationView+WebCache.m in Sources */,
 				CD9734651B32C5E40087D7E6 /* ClosetViewCell.swift in Sources */,
