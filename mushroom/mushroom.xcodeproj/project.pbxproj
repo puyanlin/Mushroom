@@ -73,6 +73,8 @@
 		CD9734621B32B88F0087D7E6 /* ClosetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */; };
 		CD9734651B32C5E40087D7E6 /* ClosetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9734631B32C5E40087D7E6 /* ClosetViewCell.swift */; };
 		CD9734661B32C5E40087D7E6 /* ClosetViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9734641B32C5E40087D7E6 /* ClosetViewCell.xib */; };
+		CDE7C7E51B390A1300B80428 /* ModeSwitcherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE7C7E41B390A1300B80428 /* ModeSwitcherHeaderView.swift */; };
+		CDE7C7E71B390A2200B80428 /* ModeSwitcherHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE7C7E61B390A2200B80428 /* ModeSwitcherHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +176,8 @@
 		CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetTableViewController.swift; sourceTree = "<group>"; };
 		CD9734631B32C5E40087D7E6 /* ClosetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClosetViewCell.swift; path = Cells/ClosetViewCell.swift; sourceTree = "<group>"; };
 		CD9734641B32C5E40087D7E6 /* ClosetViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClosetViewCell.xib; path = Cells/ClosetViewCell.xib; sourceTree = "<group>"; };
+		CDE7C7E41B390A1300B80428 /* ModeSwitcherHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModeSwitcherHeaderView.swift; path = View/ModeSwitcherHeaderView.swift; sourceTree = "<group>"; };
+		CDE7C7E61B390A2200B80428 /* ModeSwitcherHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ModeSwitcherHeaderView.xib; path = View/ModeSwitcherHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +383,8 @@
 			children = (
 				3DAC048C1B356D7A00B1864E /* ClostClassFooterConfirmView.swift */,
 				3DAC048E1B356D8C00B1864E /* ClostClassFooterConfirmView.xib */,
+				CDE7C7E41B390A1300B80428 /* ModeSwitcherHeaderView.swift */,
+				CDE7C7E61B390A2200B80428 /* ModeSwitcherHeaderView.xib */,
 				3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */,
 				3DF2C28C1B359DFE00C70514 /* ProductDetailView.xib */,
 				3DF2C2941B35DB8000C70514 /* BookingView.swift */,
@@ -474,6 +480,7 @@
 				3DF2C28D1B359DFE00C70514 /* ProductDetailView.xib in Resources */,
 				3DAC048F1B356D8C00B1864E /* ClostClassFooterConfirmView.xib in Resources */,
 				3DF2C2891B348D2100C70514 /* ClosetCell.xib in Resources */,
+				CDE7C7E71B390A2200B80428 /* ModeSwitcherHeaderView.xib in Resources */,
 				CD2497A21B2FC8DA00AE688F /* Main.storyboard in Resources */,
 				CD9734661B32C5E40087D7E6 /* ClosetViewCell.xib in Resources */,
 				CD2497E81B3008FA00AE688F /* OpenOffCell.xib in Resources */,
@@ -529,6 +536,7 @@
 				CD9734651B32C5E40087D7E6 /* ClosetViewCell.swift in Sources */,
 				3D0D88EB1B31293000978C3A /* NSData+ImageContentType.m in Sources */,
 				CD2497E71B3008FA00AE688F /* OpenOffCell.swift in Sources */,
+				CDE7C7E51B390A1300B80428 /* ModeSwitcherHeaderView.swift in Sources */,
 				3D0D88F11B31293000978C3A /* SDWebImageManager.m in Sources */,
 				3D0D88EE1B31293000978C3A /* SDWebImageDecoder.m in Sources */,
 				3D0D88EC1B31293000978C3A /* SDImageCache.m in Sources */,

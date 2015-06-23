@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import Bolts
 
-class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, ClosetCellDelegate {
+class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, ClosetCellDelegate ,ModeSwitcherHeaderViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     
@@ -36,24 +36,12 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         
         var barMyClosetBtn:UIBarButtonItem=UIBarButtonItem(customView: myClosetBtn)
         
-        var funcBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
-        funcBtn.setTitle("翻看衣櫃", forState: UIControlState.Normal)
-        funcBtn.setTitle("選取多件", forState: UIControlState.Selected)
-        funcBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        funcBtn.setTitleColor(tintColor, forState: UIControlState.Selected)
-        funcBtn.layer.borderWidth=1
-        funcBtn.layer.borderColor=UIColor.whiteColor().CGColor
-        funcBtn.layer.cornerRadius=5
-        funcBtn.addTarget(self, action: "didClickfuncBtn:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        var barFunctionBtn:UIBarButtonItem=UIBarButtonItem(customView: funcBtn)
-        
-        self.navigationItem.rightBarButtonItems=[barMyClosetBtn,barFunctionBtn]
+        self.navigationItem.rightBarButtonItem=barMyClosetBtn
             
         rowHeight=self.view.frame.size.height > self.view.frame.size.width ? self.view.frame.size.height/4.5 : self.view.frame.size.height / 2.5
         
         self.tableView.registerNib(UINib(nibName: "ClosetCell", bundle: nil), forCellReuseIdentifier:"ClosetCell")
-        //self.tableView.registerNib(UINib(nibName: "ClostClassFooterConfirmView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ClostClassFooterConfirmView")
+        self.tableView.registerNib(UINib(nibName: "ModeSwitcherHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ModeSwitcherHeaderView")
         
     }
     
@@ -67,10 +55,6 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
             self.rowNum = self.arrayProduct.count/3
             self.rowNum=self.rowNum < 1 ? 1 : self.rowNum
             if self.arrayProduct.count>3 && (self.arrayProduct.count % 3)>0 { self.rowNum+=1 }
-            
-//            for product in self.arrayProduct {
-//                product.setValue(self.title, forKey: "DisplayName")
-//            }
             
             UIView.transitionWithView(self.tableView, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                 
@@ -109,8 +93,6 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         let start:Int =  indexPath.row * 3
         let end:Int = start + 2
         
-        
-        
         for index in start...end {
             if self.arrayProduct.count <= index { break }
             products.append(self.arrayProduct[index])
@@ -125,6 +107,17 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         return rowHeight
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView=tableView.dequeueReusableHeaderFooterViewWithIdentifier("ModeSwitcherHeaderView") as! ModeSwitcherHeaderView
+        headerView.funcType=funcType
+        headerView.delegate=self
+        return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 55.0
+    }
+    
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if cell.respondsToSelector("setSeparatorInset:") {
             cell.separatorInset=UIEdgeInsetsZero
@@ -135,7 +128,6 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         if cell.respondsToSelector("setLayoutMargins:"){
             cell.layoutMargins=UIEdgeInsetsZero
         }
-        
     }
     
     //MARK: UI Control Events
@@ -171,5 +163,11 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         view.product=product
         
         self.navigationController?.view.addSubview(view)
+    }
+    
+    //MARK: - ModeSwitcherHeaderViewDelegate
+    func didSwitcherChanged(isOn: Bool) {
+        funcType = isOn ? FunctionType.Booking: FunctionType.Overview
+        self.tableView.reloadData()
     }
 }
