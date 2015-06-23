@@ -58,20 +58,12 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.title="香菇日韓服飾"
 
         if !launchTime {
-            
-            self.loadingIndicator.hidden=false
-            self.loadingIndicator.alpha=1
+            self.tableView.reloadData()
             
             PFConfig.getConfigInBackgroundWithBlock { (var cfg:PFConfig?, var error:NSError?) -> Void in
                 self.appConfig = cfg as PFConfig!
                 self.tableView.reloadData()
                 
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.loadingIndicator.alpha=0
-                    }, completion: { (complete) -> Void in
-                    self.loadingIndicator.hidden=true
-                })
-
             }
         }
         
@@ -80,9 +72,29 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !launchTime {
+
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.loadingIndicator.alpha=0
+                }, completion: { (complete) -> Void in
+                    self.loadingIndicator.hidden=true
+            })
+            
+        }
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.loadingIndicator.hidden=false
+        self.loadingIndicator.alpha=1
     }
 
     override func didReceiveMemoryWarning() {

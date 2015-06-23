@@ -29,6 +29,47 @@
 		3DAC048D1B356D7A00B1864E /* ClostClassFooterConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC048C1B356D7A00B1864E /* ClostClassFooterConfirmView.swift */; };
 		3DAC048F1B356D8C00B1864E /* ClostClassFooterConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAC048E1B356D8C00B1864E /* ClostClassFooterConfirmView.xib */; };
 		3DAFF9C31B316834002F2EBD /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */; };
+		3DEECB8E1B39B5A000CD348B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979E1B2FC8DA00AE688F /* MasterViewController.swift */; };
+		3DEECB8F1B39B5CB00CD348B /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497BE1B2FF3B000AE688F /* Bolts.framework */; };
+		3DEECB901B39B5CF00CD348B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497BF1B2FF3B000AE688F /* Parse.framework */; };
+		3DEECB911B39B5D200CD348B /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497C01B2FF3B000AE688F /* ParseCrashReporting.framework */; };
+		3DEECB921B39B5D200CD348B /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497C11B2FF3B000AE688F /* ParseFacebookUtils.framework */; };
+		3DEECB931B39B5D200CD348B /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497C21B2FF3B000AE688F /* ParseFacebookUtilsV4.framework */; };
+		3DEECB941B39B5D200CD348B /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2497C31B2FF3B000AE688F /* ParseUI.framework */; };
+		3DEECB951B39B5E600CD348B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24979C1B2FC8DA00AE688F /* AppDelegate.swift */; };
+		3DEECB961B39B60A00CD348B /* OpenOffCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2497E51B3008FA00AE688F /* OpenOffCell.swift */; };
+		3DEECB971B39B60A00CD348B /* SalesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88C21B31289600978C3A /* SalesCell.swift */; };
+		3DEECB981B39B60A00CD348B /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97345C1B3267680087D7E6 /* NewsCell.swift */; };
+		3DEECB991B39B60A00CD348B /* ClosetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9734631B32C5E40087D7E6 /* ClosetViewCell.swift */; };
+		3DEECB9A1B39B60A00CD348B /* ClosetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2861B348D2100C70514 /* ClosetCell.swift */; };
+		3DEECB9B1B39B60A00CD348B /* CheckBookingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2961B3862D900C70514 /* CheckBookingCell.swift */; };
+		3DEECB9C1B39B62400CD348B /* BookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC04881B35657D00B1864E /* BookingManager.swift */; };
+		3DEECB9D1B39B62800CD348B /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD97345A1B3261740087D7E6 /* NewsTableViewController.swift */; };
+		3DEECB9E1B39B62800CD348B /* ClosetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9734611B32B88F0087D7E6 /* ClosetTableViewController.swift */; };
+		3DEECB9F1B39B62800CD348B /* ClosetClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */; };
+		3DEECBA01B39B62800CD348B /* BookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2901B35BFBE00C70514 /* BookingTableViewController.swift */; };
+		3DEECBA11B39B62800CD348B /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAFF9C21B316834002F2EBD /* ContactTableViewController.swift */; };
+		3DEECBA21B39B62800CD348B /* BookingHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93BD501B37FC170099790E /* BookingHandleViewController.swift */; };
+		3DEECBA31B39B64F00CD348B /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88CA1B31293000978C3A /* MKAnnotationView+WebCache.m */; };
+		3DEECBA41B39B64F00CD348B /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88CC1B31293000978C3A /* NSData+ImageContentType.m */; };
+		3DEECBA51B39B64F00CD348B /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88CE1B31293000978C3A /* SDImageCache.m */; };
+		3DEECBA61B39B64F00CD348B /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88D01B31293000978C3A /* SDWebImageCompat.m */; };
+		3DEECBA71B39B64F00CD348B /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88D21B31293000978C3A /* SDWebImageDecoder.m */; };
+		3DEECBA81B39B64F00CD348B /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88D41B31293000978C3A /* SDWebImageDownloader.m */; };
+		3DEECBA91B39B64F00CD348B /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88D61B31293000978C3A /* SDWebImageDownloaderOperation.m */; };
+		3DEECBAA1B39B64F00CD348B /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88D81B31293000978C3A /* SDWebImageManager.m */; };
+		3DEECBAB1B39B64F00CD348B /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88DB1B31293000978C3A /* SDWebImagePrefetcher.m */; };
+		3DEECBAC1B39B64F00CD348B /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88DD1B31293000978C3A /* UIButton+WebCache.m */; };
+		3DEECBAD1B39B64F00CD348B /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88DF1B31293000978C3A /* UIImage+GIF.m */; };
+		3DEECBAE1B39B64F00CD348B /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E11B31293000978C3A /* UIImage+MultiFormat.m */; };
+		3DEECBAF1B39B64F00CD348B /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E31B31293000978C3A /* UIImage+WebP.m */; };
+		3DEECBB01B39B64F00CD348B /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E51B31293000978C3A /* UIImageView+HighlightedWebCache.m */; };
+		3DEECBB11B39B64F00CD348B /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E71B31293000978C3A /* UIImageView+WebCache.m */; };
+		3DEECBB21B39B64F00CD348B /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0D88E91B31293000978C3A /* UIView+WebCacheOperation.m */; };
+		3DEECBB31B39B67200CD348B /* ClostClassFooterConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC048C1B356D7A00B1864E /* ClostClassFooterConfirmView.swift */; };
+		3DEECBB41B39B67200CD348B /* ModeSwitcherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE7C7E41B390A1300B80428 /* ModeSwitcherHeaderView.swift */; };
+		3DEECBB51B39B67200CD348B /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C28E1B359FF200C70514 /* ProductDetailView.swift */; };
+		3DEECBB61B39B67200CD348B /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2941B35DB8000C70514 /* BookingView.swift */; };
 		3DF2C2881B348D2100C70514 /* ClosetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C2861B348D2100C70514 /* ClosetCell.swift */; };
 		3DF2C2891B348D2100C70514 /* ClosetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF2C2871B348D2100C70514 /* ClosetCell.xib */; };
 		3DF2C28B1B34911000C70514 /* ClosetClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF2C28A1B34911000C70514 /* ClosetClassViewController.swift */; };
@@ -211,6 +252,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DEECB941B39B5D200CD348B /* ParseUI.framework in Frameworks */,
+				3DEECB901B39B5CF00CD348B /* Parse.framework in Frameworks */,
+				3DEECB911B39B5D200CD348B /* ParseCrashReporting.framework in Frameworks */,
+				3DEECB921B39B5D200CD348B /* ParseFacebookUtils.framework in Frameworks */,
+				3DEECB8F1B39B5CB00CD348B /* Bolts.framework in Frameworks */,
+				3DEECB931B39B5D200CD348B /* ParseFacebookUtilsV4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +594,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DEECBAD1B39B64F00CD348B /* UIImage+GIF.m in Sources */,
+				3DEECBB51B39B67200CD348B /* ProductDetailView.swift in Sources */,
+				3DEECBA21B39B62800CD348B /* BookingHandleViewController.swift in Sources */,
+				3DEECBA01B39B62800CD348B /* BookingTableViewController.swift in Sources */,
+				3DEECB9F1B39B62800CD348B /* ClosetClassViewController.swift in Sources */,
+				3DEECBA11B39B62800CD348B /* ContactTableViewController.swift in Sources */,
+				3DEECBAF1B39B64F00CD348B /* UIImage+WebP.m in Sources */,
+				3DEECBA41B39B64F00CD348B /* NSData+ImageContentType.m in Sources */,
+				3DEECB9B1B39B60A00CD348B /* CheckBookingCell.swift in Sources */,
+				3DEECB951B39B5E600CD348B /* AppDelegate.swift in Sources */,
+				3DEECBA71B39B64F00CD348B /* SDWebImageDecoder.m in Sources */,
+				3DEECB971B39B60A00CD348B /* SalesCell.swift in Sources */,
+				3DEECBB61B39B67200CD348B /* BookingView.swift in Sources */,
+				3DEECBAC1B39B64F00CD348B /* UIButton+WebCache.m in Sources */,
+				3DEECBAA1B39B64F00CD348B /* SDWebImageManager.m in Sources */,
+				3DEECB9C1B39B62400CD348B /* BookingManager.swift in Sources */,
+				3DEECBB11B39B64F00CD348B /* UIImageView+WebCache.m in Sources */,
+				3DEECB9D1B39B62800CD348B /* NewsTableViewController.swift in Sources */,
+				3DEECB961B39B60A00CD348B /* OpenOffCell.swift in Sources */,
+				3DEECB991B39B60A00CD348B /* ClosetViewCell.swift in Sources */,
+				3DEECB8E1B39B5A000CD348B /* MasterViewController.swift in Sources */,
+				3DEECBB01B39B64F00CD348B /* UIImageView+HighlightedWebCache.m in Sources */,
+				3DEECBA81B39B64F00CD348B /* SDWebImageDownloader.m in Sources */,
+				3DEECBB41B39B67200CD348B /* ModeSwitcherHeaderView.swift in Sources */,
+				3DEECBAB1B39B64F00CD348B /* SDWebImagePrefetcher.m in Sources */,
+				3DEECB9A1B39B60A00CD348B /* ClosetCell.swift in Sources */,
+				3DEECBA51B39B64F00CD348B /* SDImageCache.m in Sources */,
+				3DEECBA91B39B64F00CD348B /* SDWebImageDownloaderOperation.m in Sources */,
+				3DEECB981B39B60A00CD348B /* NewsCell.swift in Sources */,
+				3DEECBA31B39B64F00CD348B /* MKAnnotationView+WebCache.m in Sources */,
+				3DEECBAE1B39B64F00CD348B /* UIImage+MultiFormat.m in Sources */,
+				3DEECBB21B39B64F00CD348B /* UIView+WebCacheOperation.m in Sources */,
+				3DEECBA61B39B64F00CD348B /* SDWebImageCompat.m in Sources */,
+				3DEECBB31B39B67200CD348B /* ClostClassFooterConfirmView.swift in Sources */,
 				CD2497B31B2FC8DA00AE688F /* mushroomTests.swift in Sources */,
+				3DEECB9E1B39B62800CD348B /* ClosetTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +793,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/parse-library",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -719,6 +802,7 @@
 				INFOPLIST_FILE = mushroomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mushroom-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mushroom.app/mushroom";
 			};
 			name = Debug;
@@ -730,10 +814,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/parse-library",
 				);
 				INFOPLIST_FILE = mushroomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mushroom-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mushroom.app/mushroom";
 			};
 			name = Release;
