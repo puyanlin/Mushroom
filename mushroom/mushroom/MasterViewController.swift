@@ -14,41 +14,24 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet var loadingIndicator: UIView!
     var appConfig:PFConfig!
     
     let arrayTitle=["最新消息","香菇衣櫃","找香菇"]
     
+    var launchTime:Bool=true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier:"Cell")
         self.tableView.registerNib(UINib(nibName: "OpenOffCell", bundle: nil), forCellReuseIdentifier:"OpenOffCell")
         self.tableView.registerNib(UINib(nibName: "SalesCell", bundle: nil), forCellReuseIdentifier:"SalesCell")
         self.tableView.tableFooterView=UIView()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title="香菇日韓服飾"
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.loadingIndicator.hidden=false
-        self.tableView.hidden=true
         
         PFConfig.getConfigInBackgroundWithBlock { (var cfg:PFConfig?, var error:NSError?) -> Void in
             self.appConfig = cfg as PFConfig!
-            
-            self.loadingIndicator.hidden=true
-            self.tableView.hidden=false
             
             let transition = CATransition()
             transition.type = kCATransitionPush
@@ -59,8 +42,47 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.tableView.layer.addAnimation(transition, forKey: "UITableViewReloadDataAnimationKey")
             self.tableView.reloadData()
             
+            if self.launchTime {
+                var view:UIActivityIndicatorView=self.loadingIndicator.viewWithTag(10) as! UIActivityIndicatorView
+                view.removeFromSuperview()
+                self.loadingIndicator.hidden=true
+                self.launchTime=false
+            }
+            
         }
         
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title="香菇日韓服飾"
+
+        if !launchTime {
+            
+            self.loadingIndicator.hidden=false
+            self.loadingIndicator.alpha=1
+            
+            PFConfig.getConfigInBackgroundWithBlock { (var cfg:PFConfig?, var error:NSError?) -> Void in
+                self.appConfig = cfg as PFConfig!
+                self.tableView.reloadData()
+                
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.loadingIndicator.alpha=0
+                    }, completion: { (complete) -> Void in
+                    self.loadingIndicator.hidden=true
+                })
+
+            }
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,15 +92,11 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func applicationWillEnterForeground(notification: NSNotification) {
         //println("did enter foreground")
-        self.viewDidAppear(false)
+        self.viewWillAppear(true)
     }
     
     func applicationWillEnterBackground(notification: NSNotification) {
         //println("did enter background")
-    }
-    
-    deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     //MARK: UITableView
