@@ -26,7 +26,7 @@ class ModeSwitcherHeaderView: UITableViewHeaderFooterView {
     var delegate:ModeSwitcherHeaderViewDelegate!
     
     @IBAction func switchValueChanged(sender: UISwitch) {
-        println( sender.on ? "true":"false" )
+        print( sender.on ? "true":"false" )
         delegate.didSwitcherChanged(sender.on)
     }
 

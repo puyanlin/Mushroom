@@ -13,7 +13,7 @@ class ContactTableViewController: UITableViewController {
     let aboutContact=[["icon":"line","title":"LINE ID","detail":"yenju1208 (香菇）","url":"line://ti/p/l6dsTkb1Bf"],
                       ["icon":"fb","title":"facebook 粉絲專頁","detail":"香菇日韓服飾","url":"fb://profile/135345183313097"],
                       ["icon":"phone","title":"聯絡電話","detail":"0916-242-077","url":"telprompt://+886916242077"],
-                      ["icon":"map","title":"位置","detail":"新北市三重區長壽西街54號","url": String("http://maps.apple.com/?q="+"新北市三重區長壽西街54號".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)]]
+                      ["icon":"map","title":"位置","detail":"新北市三重區長壽西街54號","url": String("http://maps.apple.com/?q="+"新北市三重區長壽西街54號".stringByRemovingPercentEncoding!)]]
     
     override func viewDidLoad() {
         super.viewDidLoad()

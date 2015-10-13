@@ -25,7 +25,7 @@ class BookingHandleViewController: UITableViewController , CheckBookingCellDeleg
         self.tableView.registerNib(UINib(nibName: "ClosetViewCell", bundle: nil), forCellReuseIdentifier:"ClosetViewCell")
         self.tableView.registerNib(UINib(nibName: "CheckBookingCell", bundle: nil), forCellReuseIdentifier:"CheckBookingCell")
         
-        var query:PFQuery=PFQuery(className: "BookingList")
+        let query:PFQuery=PFQuery(className: "BookingList")
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
             
             for booking in array! {
@@ -77,7 +77,7 @@ class BookingHandleViewController: UITableViewController , CheckBookingCellDeleg
             cell.delegate=self
             cell.section=indexPath.section
             
-            var totalPrice:Int=bookingInfo["totalPrice"] as! Int
+            let totalPrice:Int=bookingInfo["totalPrice"] as! Int
             cell.price=totalPrice
             
             cell.selectionStyle=UITableViewCellSelectionStyle.None
@@ -92,11 +92,11 @@ class BookingHandleViewController: UITableViewController , CheckBookingCellDeleg
         product.fetchIfNeededInBackgroundWithBlock { (pfObj:PFObject?, error:NSError?) -> Void in
             cell.lblName.text=product["DisplayName"] as? String
             cell.closetImgView.sd_setImageWithURL(NSURL(string: (product["imgUrl"] as? String)!))
-            var mushroonId:String = bookingInfo["items"]![indexPath.row-1] as! String
+            let mushroonId:String = bookingInfo["items"]![indexPath.row-1] as! String
             cell.lblOnSale.text="貨號: \(mushroonId)"
         }
         
-        var selectedView:UIView = UIView()
+        let selectedView:UIView = UIView()
         selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 240.0/255, alpha: 1);
         cell.selectedBackgroundView =  selectedView;
         
@@ -107,7 +107,7 @@ class BookingHandleViewController: UITableViewController , CheckBookingCellDeleg
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 { return 44.0 }
         
-        var info = bookingList[indexPath.section]
+        let info = bookingList[indexPath.section]
         let count:Int = (info["items"] as! [String]).count
         if  indexPath.row == (count + 1) { return 55.0 }
         return 88.0
@@ -122,7 +122,7 @@ class BookingHandleViewController: UITableViewController , CheckBookingCellDeleg
             UIApplication.sharedApplication().openURL(NSURL(string: String("telprompt://\(phone)"))!)
         }else if indexPath.row < tableView.numberOfRowsInSection(indexPath.section)-1 {
             
-            var view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
+            let view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
             view.frame=self.view.frame
             
             let items:[PFObject]=bookingInfo["itemsData"] as! [PFObject]

@@ -30,7 +30,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.tableView.tableFooterView=UIView()
         
         
-        PFConfig.getConfigInBackgroundWithBlock { (var cfg:PFConfig?, var error:NSError?) -> Void in
+        PFConfig.getConfigInBackgroundWithBlock { ( cfg:PFConfig?, error:NSError?) -> Void in
             self.appConfig = cfg as PFConfig!
             
             let transition = CATransition()
@@ -43,7 +43,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.tableView.reloadData()
             
             if self.launchTime {
-                var view:UIActivityIndicatorView=self.loadingIndicator.viewWithTag(10) as! UIActivityIndicatorView
+                let view:UIActivityIndicatorView=self.loadingIndicator.viewWithTag(10) as! UIActivityIndicatorView
                 view.removeFromSuperview()
                 self.loadingIndicator.hidden=true
                 self.launchTime=false
@@ -60,7 +60,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         if !launchTime {
             self.tableView.reloadData()
             
-            PFConfig.getConfigInBackgroundWithBlock { (var cfg:PFConfig?, var error:NSError?) -> Void in
+            PFConfig.getConfigInBackgroundWithBlock { ( cfg:PFConfig?, err:NSError?) -> Void in
                 self.appConfig = cfg as PFConfig!
                 self.tableView.reloadData()
                 
@@ -132,7 +132,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         switch(indexPath.section){
             case 0:
-                var cell=tableView.dequeueReusableCellWithIdentifier("OpenOffCell") as! OpenOffCell
+                let cell=tableView.dequeueReusableCellWithIdentifier("OpenOffCell") as! OpenOffCell
                 
                 let open=self.appConfig["open"] as! Bool
                 cell.isOpen=open
@@ -147,16 +147,16 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
                 return cell
             case 1:
-                var cell=tableView.dequeueReusableCellWithIdentifier("SalesCell") as! SalesCell
+                let cell=tableView.dequeueReusableCellWithIdentifier("SalesCell") as! SalesCell
                 let salesInfo=self.appConfig["saleContent"] as! String
-                cell.tvSales.text=salesInfo.stringByReplacingOccurrencesOfString("\\n", withString: "\n", options: nil , range: nil)
+                cell.tvSales.text=salesInfo.stringByReplacingOccurrencesOfString("\\n", withString: "\n")
                 let size=self.appConfig["saleTextSize"] as! CGFloat
                 cell.tvSales.font = UIFont.systemFontOfSize(size)
                 cell.tvSales.textColor=UIColor.whiteColor()
                 cell.imgUrl=self.appConfig["saleImage"] as! String
                 return cell
             case 2:
-                var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+                let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell")!
 
                 cell.textLabel?.text = arrayTitle[indexPath.row]
                 switch(indexPath.row){
@@ -169,7 +169,7 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 }
                 cell.contentView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
                 
-                var selectedView:UIView = UIView()
+                let selectedView:UIView = UIView()
                 selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3);
                 cell.selectedBackgroundView =  selectedView;
                 
@@ -178,13 +178,13 @@ class MasterViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
                 return cell
             default:
-                var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+                let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell")!
                 
                 cell.textLabel?.text = "處理訂單 >"
                 
                 cell.contentView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
                 
-                var selectedView:UIView = UIView()
+                let selectedView:UIView = UIView()
                 selectedView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.3);
                 cell.selectedBackgroundView =  selectedView;
                 

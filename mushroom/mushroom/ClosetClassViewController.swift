@@ -23,7 +23,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var myClosetBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
+        let myClosetBtn:UIButton=UIButton(frame: CGRect(x: 0, y: 0, width: 90, height: 35))
         
         myClosetBtn.setTitle("我的衣櫃", forState: UIControlState.Normal)
         let tintColor:UIColor = UIColor(red: 1, green: 0.5, blue: 0, alpha: 1)
@@ -34,7 +34,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
         myClosetBtn.layer.cornerRadius=5
         myClosetBtn.addTarget(self, action: "didClickmyClosetBtn:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        var barMyClosetBtn:UIBarButtonItem=UIBarButtonItem(customView: myClosetBtn)
+        let barMyClosetBtn:UIBarButtonItem=UIBarButtonItem(customView: myClosetBtn)
         
         self.navigationItem.rightBarButtonItem=barMyClosetBtn
             
@@ -48,7 +48,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var query:PFQuery=PFQuery(className: tableClassName)
+        let query:PFQuery=PFQuery(className: tableClassName)
         query.findObjectsInBackgroundWithBlock { (array:[AnyObject]?, error:NSError?) -> Void in
             self.arrayProduct=array as! [PFObject]
             
@@ -87,7 +87,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("ClosetCell") as! ClosetCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ClosetCell") as! ClosetCell
         
         var products:[PFObject]=[]
         let start:Int =  indexPath.row * 3
@@ -142,7 +142,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
             return
         }
         
-        var vc:BookingTableViewController=BookingTableViewController()
+        let vc:BookingTableViewController=BookingTableViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -158,7 +158,7 @@ class ClosetClassViewController: UIViewController,UITableViewDataSource,UITableV
     
     //MARK: - ClosetCellDelegate
     func didClickProduct(product: PFObject) {
-        var view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
+        let view:ProductDetailView=NSBundle.mainBundle().loadNibNamed("ProductDetailView", owner: nil, options: nil)[0] as! ProductDetailView
         view.frame=self.view.frame
         view.product=product
         

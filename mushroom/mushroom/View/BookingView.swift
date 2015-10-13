@@ -53,12 +53,12 @@ class BookingView: UIView , UIAlertViewDelegate {
         
     }
     @IBAction func bookingBtn(sender: UIButton) {
-        if self.nameField.text.isEmpty {
+        if self.nameField.text!.isEmpty {
             self.nameField.layer.borderColor=UIColor.redColor().CGColor
             return
         }
         
-        if self.phoneField.text.isEmpty {
+        if self.phoneField.text!.isEmpty {
             self.phoneField.layer.borderColor=UIColor.redColor().CGColor
             return
         }
@@ -87,11 +87,13 @@ class BookingView: UIView , UIAlertViewDelegate {
         
         for product in bookingList {
             items.append(product["mushroomId"] as! String)
-            var price:Int = product["price"] as! Int
+            let price:Int = product["price"] as! Int
             totalPrice += price
         }
         
-        bookingInformation=PFObject(className: "BookingList", dictionary: ["customer":self.nameField.text,"phone":self.phoneField.text,"items":items,"itemsData":bookingList,"totalPrice":totalPrice,"handled":false])
+        
+        
+        bookingInformation=PFObject(className: "BookingList", dictionary: (["customer":self.nameField.text,"phone":self.phoneField.text,"items":items,"itemsData":bookingList,"totalPrice":totalPrice,"handled":false] as [NSObject:AnyObject!]))
         bookingInformation.saveInBackgroundWithBlock { (complete:Bool, error:NSError?) -> Void in
             
             let bookingSerial:String!=self.bookingInformation.objectId
@@ -105,9 +107,10 @@ class BookingView: UIView , UIAlertViewDelegate {
             
             var arrayBookingId:NSMutableArray=NSMutableArray()
             
-            var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-            var path = paths.stringByAppendingPathComponent("bookingData.plist")
-            var fileManager = NSFileManager.defaultManager()
+            let paths : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+            let path = paths.stringByAppendingString("bookingData.plist")
+            
+            let fileManager = NSFileManager.defaultManager()
             
             if fileManager.fileExistsAtPath(path) {
                 arrayBookingId = NSMutableArray(contentsOfFile: path)!
